@@ -12,17 +12,6 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       padding: 20,
     },
-    header: {
-      backgroundColor: '#6B3F24',
-      padding: 10,
-      borderRadius: 10,
-      marginBottom: 20,
-    },
-    headerText: {
-      color: '#fff',
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
     input: {
       width: '80%',
       backgroundColor: '#6B3F24',
@@ -31,15 +20,17 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       color: '#fff',
     },
-    signupText: {
+    cadastroText: {
       color: '#fff',
       marginBottom: 20,
     },
     button: {
       backgroundColor: '#fff',
-    
+      padding: 10,
+      borderRadius: 10,
+      alignItems: 'center',
     },
-    orcImage: {
+    elfImage: {
       width: 200,
       height: 200,
       resizeMode: 'contain',
