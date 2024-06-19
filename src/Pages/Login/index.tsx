@@ -3,6 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground } from 
 import { styles } from './styleLogin'
 import background from '../../src/assets/images/Madeira.png';
 import personagem from '../../assets/images/Orc.png'
+import acessar from '../../assets/images/balao_acessar.png'
+import { Link } from '@react-navigation/native';
 
 const LoginScreen = () => {
   return (
@@ -26,11 +28,15 @@ const LoginScreen = () => {
           secureTextEntry
           style={styles.input}
         />
-        
-        <Text style={styles.signupText}>Não tem login? Cadastre-se</Text>
+        <View>
+          <Text style={styles.signupText}>Não tem login?</Text>
+          <Link>
+            <Text>Cadastre-se</Text>
+          </Link>
+        </View>
         
         <TouchableOpacity style={styles.button}>
-          < style={styles.buttonText}/>
+          <Image source={acessar} style={styles.buttonText}/>
         </TouchableOpacity>
         
         <Image 
