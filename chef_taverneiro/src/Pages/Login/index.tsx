@@ -1,20 +1,26 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground } from 'react-native';
-import { styles } from './styleLogin'
-import background from '../../src/assets/images/Madeira.png';
-import personagem from '../../assets/images/Orc.png'
+import React from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+} from "react-native";
+import { styles } from "./styleLogin";
+import background from "../../src/assets/images/Madeira.png";
+import personagem from "../../assets/images/Orc.png";
+import acessar from "../../assets/images/balao_acessar.png";
+import { Link } from "@react-navigation/native";
 
 const LoginScreen = () => {
   return (
-    <ImageBackground 
-      source={background} 
-      style={styles.background}
-    >
+    <ImageBackground source={background} style={styles.background}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Chef Taberneiro</Text>
         </View>
-        
+
         <TextInput
           placeholder="Login"
           placeholderTextColor="#fff"
@@ -26,21 +32,20 @@ const LoginScreen = () => {
           secureTextEntry
           style={styles.input}
         />
-        
-        <Text style={styles.signupText}>Não tem login? Cadastre-se</Text>
-        
+        <View>
+          <Text style={styles.signupText}>Não tem login?</Text>
+
+          <Text>Cadastre-se</Text>
+        </View>
+
         <TouchableOpacity style={styles.button}>
-          < style={styles.buttonText}/>
+          <Image source={acessar} style={styles.buttonText} />
         </TouchableOpacity>
-        
-        <Image 
-          source={personagem} 
-          style={styles.orcImage} 
-        />
+
+        <Image source={personagem} style={styles.orcImage} />
       </View>
     </ImageBackground>
   );
 };
-
 
 export default LoginScreen;
