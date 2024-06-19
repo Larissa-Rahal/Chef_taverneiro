@@ -13,6 +13,7 @@
     "axios": "^1.7.2",
     "expo": "~51.0.14",
     "expo-status-bar": "~1.12.1",
+    "json-server": "^1.0.0-beta.1",
     "react": "18.2.0",
     "react-native": "0.74.2"
   },
