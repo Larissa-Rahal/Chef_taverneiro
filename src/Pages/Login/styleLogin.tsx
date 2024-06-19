@@ -1,0 +1,56 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+    background: {
+      flex: 1,
+      resizeMode: 'cover',
+      justifyContent: 'center',
+    },
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 20,
+    },
+    header: {
+      backgroundColor: '#6B3F24',
+      padding: 10,
+      borderRadius: 10,
+      marginBottom: 20,
+    },
+    headerText: {
+      color: '#fff',
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
+    input: {
+      width: '80%',
+      backgroundColor: '#6B3F24',
+      padding: 10,
+      marginBottom: 10,
+      borderRadius: 20,
+      color: '#fff',
+    },
+    signupText: {
+      color: '#fff',
+      marginBottom: 20,
+    },
+    button: {
+      backgroundColor: '#fff',
+      padding: 10,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    buttonText: {
+      color: '#000',
+      fontSize: 18,
+    },
+    orcImage: {
+      width: 200,
+      height: 200,
+      resizeMode: 'contain',
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+    },
+  });
