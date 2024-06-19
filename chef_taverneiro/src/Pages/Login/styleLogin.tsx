@@ -37,13 +37,7 @@ export const styles = StyleSheet.create({
     },
     button: {
       backgroundColor: '#fff',
-      padding: 10,
-      borderRadius: 10,
-      alignItems: 'center',
-    },
-    buttonText: {
-      color: '#000',
-      fontSize: 18,
+    
     },
     orcImage: {
       width: 200,

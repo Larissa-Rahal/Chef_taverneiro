@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  ImageBackground,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground, } from "react-native";
 import { styles } from "./styleLogin";
 import background from "../../src/assets/images/Madeira.png";
 import personagem from "../../assets/images/Orc.png";
@@ -37,11 +30,9 @@ const LoginScreen = () => {
 
           <Text>Cadastre-se</Text>
         </View>
-
-        <TouchableOpacity style={styles.button}>
-          <Image source={acessar} style={styles.buttonText} />
-        </TouchableOpacity>
-
+          <TouchableOpacity style={styles.button}>
+            <Image source={acessar} />
+          </TouchableOpacity>
         <Image source={personagem} style={styles.orcImage} />
       </View>
     </ImageBackground>

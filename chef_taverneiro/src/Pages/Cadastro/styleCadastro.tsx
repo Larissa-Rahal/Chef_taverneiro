@@ -1,4 +1,6 @@
-const styles = StyleSheet.create({
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
     background: {
       flex: 1,
       resizeMode: 'cover',
@@ -27,10 +29,6 @@ const styles = StyleSheet.create({
       padding: 10,
       borderRadius: 10,
       alignItems: 'center',
-    },
-    buttonText: {
-      color: '#000',
-      fontSize: 18,
     },
     elfImage: {
       width: 200,

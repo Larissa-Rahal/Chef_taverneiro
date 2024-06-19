@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import {styles} from './styleCadastro'
 import background from "../../src/assets/images/Madeira.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
+import personagem from '../../assets/images/marcille.png'
 
 const SignupScreen = () => {
   return (
@@ -30,11 +32,11 @@ const SignupScreen = () => {
         <Text style={styles.signupText}>Ja tenho cadastro</Text>
         
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Cadastrar</Text>
+          <Image source={cadastro}/>
         </TouchableOpacity>
         
         <Image 
-          source={{ uri: 'link_para_a_imagem_da_elfa' }} 
+          source={personagem} 
           style={styles.elfImage} 
         />
       </View>
