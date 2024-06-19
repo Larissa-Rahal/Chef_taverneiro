@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, ImageBackground, } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+} from "react-native";
 import { styles } from "./styleLogin";
 import background from "../../src/assets/images/Madeira.png";
 import personagem from "../../assets/images/Orc.png";
@@ -9,6 +16,7 @@ import { Link } from "@react-navigation/native";
 const LoginScreen = () => {
   return (
     <ImageBackground source={background} style={styles.background}>
+      
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Chef Taberneiro</Text>
@@ -30,9 +38,9 @@ const LoginScreen = () => {
 
           <Text>Cadastre-se</Text>
         </View>
-          <TouchableOpacity style={styles.button}>
-            <Image source={acessar} />
-          </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Image source={acessar} />
+        </TouchableOpacity>
         <Image source={personagem} style={styles.orcImage} />
       </View>
     </ImageBackground>
