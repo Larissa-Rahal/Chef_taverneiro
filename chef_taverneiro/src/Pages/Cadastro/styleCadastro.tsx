@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       color: '#fff',
     },
-    signupText: {
+    cadastroText: {
       color: '#fff',
       marginBottom: 20,
     },

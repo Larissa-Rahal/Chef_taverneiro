@@ -5,7 +5,7 @@ import background from "../../src/assets/images/Madeira.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
 import personagem from '../../assets/images/marcille.png'
 
-const SignupScreen = () => {
+const CadastroScreen = () => {
   return (
     <ImageBackground 
       source={background} 
@@ -29,7 +29,7 @@ const SignupScreen = () => {
           style={styles.input}
         />
         
-        <Text style={styles.signupText}>Ja tenho cadastro</Text>
+        <Text style={styles.cadastroText}>Ja tenho cadastro</Text>
         
         <TouchableOpacity style={styles.button}>
           <Image source={cadastro}/>
@@ -44,4 +44,4 @@ const SignupScreen = () => {
   );
 };
 
-export default SignupScreen;
+export default CadastroScreen;
