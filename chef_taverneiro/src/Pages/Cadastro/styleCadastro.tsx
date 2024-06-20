@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     padding: 20,
   },
   inputContainer: {
-    marginTop:75,
+    marginTop: 105,
     width: '100%',
     alignItems: 'center',
   },
@@ -26,7 +26,8 @@ export const styles = StyleSheet.create({
   },
   cadastroText: {
     color: '#fff',
-    marginBottom: 20,
+    marginBottom: 10,
+    fontSize: 16,
   },
   imageContainer: {
     width: '100%',
@@ -34,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   button: {
     right: 50,
-    top:25
+    top:0,
   },
   buttonImage: {},
   elfImage: {
