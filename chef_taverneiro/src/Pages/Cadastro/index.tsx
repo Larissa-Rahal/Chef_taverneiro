@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  ImageBackground,
 } from "react-native";
 import { styles } from "./styleCadastro";
 import background from "../../assets/images/Madeira.png";
@@ -14,7 +13,7 @@ import personagem from "../../assets/images/marcille.png";
 
 const CadastroScreen = () => {
   return (
-    <ImageBackground source={background} style={styles.background}>
+    <>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput
@@ -43,7 +42,7 @@ const CadastroScreen = () => {
 
         <Image source={personagem} style={styles.elfImage} />
       </View>
-    </ImageBackground>
+    </>
   );
 };
 

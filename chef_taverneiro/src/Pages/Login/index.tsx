@@ -15,8 +15,6 @@ import { Link } from "@react-navigation/native";
 
 const LoginScreen = () => {
   return (
-    <ImageBackground source={background} style={styles.background}>
-
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Chef Taberneiro</Text>
@@ -43,7 +41,6 @@ const LoginScreen = () => {
         </TouchableOpacity>
         <Image source={personagem} style={styles.orcImage} />
       </View>
-    </ImageBackground>
   );
 };
 
