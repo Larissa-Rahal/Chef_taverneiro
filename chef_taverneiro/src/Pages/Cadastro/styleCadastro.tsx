@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     padding: 20,
   },
   inputContainer: {
+    marginTop:75,
     width: '100%',
     alignItems: 'center',
   },
@@ -28,27 +29,18 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   imageContainer: {
-    position: 'absolute',
     width: '100%',
     alignItems: 'center',
   },
   button: {
-
-    position: 'absolute',
-    bottom: 130,
-    left: '50%',
-    marginLeft: -50, // Metade da largura da imagem do botão para centralizar
+    right: 50,
+    top:25
   },
-  buttonImage: {
-    width: 100,
-    height: 50,
-    resizeMode: 'contain',
-  },
+  buttonImage: {},
   elfImage: {
     width: '100%',
     resizeMode: 'contain',
-    position: 'absolute',
-    bottom:-435 ,
+    bottom:0 ,
     left: 56
   },
 });

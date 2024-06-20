@@ -10,9 +10,10 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 >;
 
 export const Favorites = () => {
-    return<>
+    return
+    <>
      <ImageBackground source={background} style={styles.background}>
-         <Text style={{textAlign: 'center', fontSize: 80}}>Fovorites</Text>
+         <Text style={{textAlign: 'center', fontSize: 80}}>Favorites</Text>
      </ImageBackground>
     </>
 }
