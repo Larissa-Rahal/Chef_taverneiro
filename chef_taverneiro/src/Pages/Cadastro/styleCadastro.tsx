@@ -33,14 +33,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    // width:'100%',
-    // position: 'absolute',
-    // bottom: 130,
-    // left: '10%',
-    // marginLeft: -50, // Metade da largura da imagem do botão para centralizar
+
+    position: 'absolute',
+    bottom: 130,
+    left: '50%',
+    marginLeft: -50, // Metade da largura da imagem do botão para centralizar
   },
   buttonImage: {
-    width: 100%,
+    width: 100,
     height: 50,
     resizeMode: 'contain',
   },
