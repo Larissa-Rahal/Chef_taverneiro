@@ -4,40 +4,39 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from "./styleCadastro";
 import background from "../../assets/images/Pagina de Cadastro.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
-import personagem from "../../assets/images/marcille.png";
 
 const CadastroScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <ImageBackground style={styles.background} source={background}>
-      <View style={styles.container}>
+    <ImageBackground style={styles.loginBackground} source={background}>
+      <View style={styles.loginContainer}>
 
-        <View style={styles.inputContainer}>
+        <View style={styles.loginInputContainer}>
           <TextInput
             placeholder="Login"
             placeholderTextColor="#fff"
-            style={styles.input}
+            style={styles.loginInput}
           />
           <TextInput
             placeholder="E-mail"
             placeholderTextColor="#fff"
-            style={styles.input}
+            style={styles.loginInput}
           />
           <TextInput
             placeholder="Senha"
             placeholderTextColor="#fff"
             secureTextEntry
-            style={styles.input}
+            style={styles.loginInput}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.cadastroText}>Já tenho cadastro</Text>
+            <Text style={styles.loginCadastroText}>Já tenho cadastro</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={styles.imageContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-            <Image source={cadastro} style={styles.buttonImage} />
+        <View style={styles.loginImageContainer}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
+            <Image source={cadastro} style={styles.loginButtonImage} />
           </TouchableOpacity>
         </View>
 
