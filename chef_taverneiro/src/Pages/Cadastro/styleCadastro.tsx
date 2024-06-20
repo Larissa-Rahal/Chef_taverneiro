@@ -1,21 +1,21 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  background: {
+  loginBackground: {
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
   },
-  container: {
+  loginContainer: {
     flex: 1,
     alignItems: 'center',
-    padding: 20,
   },
-  inputContainer: {
+  loginInputContainer: {
+    marginTop: '35%',
     width: '100%',
     alignItems: 'center',
   },
-  input: {
+  loginInput: {
     width: '90%',
     backgroundColor: '#6B3F24',
     padding: 20,
@@ -23,32 +23,18 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     color: '#fff',
   },
-  cadastroText: {
+  loginCadastroText: {
     color: '#fff',
-    marginBottom: 20,
+    marginBottom: 10,
+    fontSize: 16,
   },
-  imageContainer: {
-    position: 'absolute',
+  loginImageContainer: {
     width: '100%',
     alignItems: 'center',
   },
-  button: {
-
-    position: 'absolute',
-    bottom: 130,
-    left: '50%',
-    marginLeft: -50, // Metade da largura da imagem do botão para centralizar
+  loginButton: {
+    right: 50,
+    top:0,
   },
-  buttonImage: {
-    width: 100,
-    height: 50,
-    resizeMode: 'contain',
-  },
-  elfImage: {
-    width: '100%',
-    resizeMode: 'contain',
-    position: 'absolute',
-    bottom:-435 ,
-    left: 56
-  },
+  loginButtonImage: {},
 });

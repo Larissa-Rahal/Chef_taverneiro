@@ -8,20 +8,14 @@ import {
   ImageBackground,
 } from "react-native";
 import { styles } from "./styleLogin";
-import background from "../../assets/images/Madeira.png";
+import background from "../../assets/images/Pagina de Login.png";
 import personagem from "../../assets/images/Orc.png";
 import acessar from "../../assets/images/balao_acessar.png";
-import { Link } from "@react-navigation/native";
 
 const LoginScreen = () => {
   return (
-    <ImageBackground source={background} style={styles.background}>
-
+    <ImageBackground style={styles.background} source={background}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Chef Taberneiro</Text>
-        </View>
-
         <TextInput
           placeholder="Login"
           placeholderTextColor="#fff"
@@ -38,10 +32,10 @@ const LoginScreen = () => {
 
           <Text>Cadastre-se</Text>
         </View>
+
         <TouchableOpacity style={styles.button}>
           <Image source={acessar} />
         </TouchableOpacity>
-        <Image source={personagem} style={styles.orcImage} />
       </View>
     </ImageBackground>
   );

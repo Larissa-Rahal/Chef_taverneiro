@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,42 +6,82 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  Alert,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleCadastro";
-import background from "../../assets/images/Madeira.png";
+import background from "../../assets/images/Pagina de Cadastro.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
-import personagem from "../../assets/images/marcille.png";
+import api from '../../services/api/api'
 
 const CadastroScreen = () => {
+  const navigation = useNavigation();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const response = await api.post("/users", {
+        nome: name,
+        email: email,
+        senha: password,
+      });
+      console.log("Usuário cadastrado com sucesso:", response.data);
+
+      setName("");
+      setEmail("");
+      setPassword("");
+      Alert.alert('Usuário cadastrado com sucesso!');
+      if (response.status === 201) {
+        navigation.navigate("Login");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar usuário:", error);
+      Alert.alert('Erro ao cadastrar usuário:', error.message);
+    }
+  };
+
   return (
-    <ImageBackground source={background} style={styles.background}>
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
+    <ImageBackground style={styles.loginBackground} source={background}>
+      <View style={styles.loginContainer}>
+        <View style={styles.loginInputContainer}>
           <TextInput
-            placeholder="Login"
+            placeholder="Nome"
             placeholderTextColor="#fff"
-            style={styles.input}
+            style={styles.loginInput}
+            value={name}
+            onChangeText={setName}
           />
           <TextInput
             placeholder="E-mail"
             placeholderTextColor="#fff"
-            style={styles.input}
+            style={styles.loginInput}
+            value={email}
+            onChangeText={setEmail}
           />
           <TextInput
             placeholder="Senha"
             placeholderTextColor="#fff"
             secureTextEntry
-            style={styles.input}
+            style={styles.loginInput}
+            value={password}
+            onChangeText={setPassword}
           />
-          <Text style={styles.cadastroText}>Já tenho cadastro</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+            <Text style={styles.loginCadastroText}>Já tenho cadastro</Text>
+          </TouchableOpacity>
         </View>
-      </View>
-      <View style={styles.imageContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Image source={cadastro} style={styles.buttonImage} />
-        </TouchableOpacity>
 
-        <Image source={personagem} style={styles.elfImage} />
+        <View style={styles.loginImageContainer}>
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={handleSubmit}
+          >
+            <Image source={cadastro} style={styles.loginButtonImage} />
+          </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );
