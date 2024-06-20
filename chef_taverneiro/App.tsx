@@ -1,16 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-// import LoginScreen from './src/Pages/Login';
-import { NavigationContainer } from '@react-navigation/native';
-import CadastroScreen from './src/Pages/Cadastro';
+import LoginScreen from './src/Pages/Login';
+import { Routes } from './src/Routes';
 
 export default function App() {
   return (
-  <NavigationContainer>
-    {/* <LoginScreen/> */}
-    <CadastroScreen/>
-  </NavigationContainer>
-
+  <Routes />
   );
 }
 
