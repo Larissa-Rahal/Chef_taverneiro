@@ -1,41 +1,54 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    background: {
-      flex: 1,
-      resizeMode: 'cover',
-      justifyContent: 'center',
-    },
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 20,
-    },
-    input: {
-      width: '80%',
-      backgroundColor: '#6B3F24',
-      padding: 10,
-      marginBottom: 10,
-      borderRadius: 20,
-      color: '#fff',
-    },
-    cadastroText: {
-      color: '#fff',
-      marginBottom: 20,
-    },
-    button: {
-      backgroundColor: '#fff',
-      padding: 10,
-      borderRadius: 10,
-      alignItems: 'center',
-    },
-    elfImage: {
-      width: 200,
-      height: 200,
-      resizeMode: 'contain',
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-    },
-  });
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    padding: 20,
+  },
+  inputContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  input: {
+    width: '90%',
+    backgroundColor: '#6B3F24',
+    padding: 20,
+    marginBottom: 10,
+    borderRadius: 20,
+    color: '#fff',
+  },
+  cadastroText: {
+    color: '#fff',
+    marginBottom: 20,
+  },
+  imageContainer: {
+    position: 'absolute',
+    width: '100%',
+    alignItems: 'center',
+  },
+  button: {
+
+    position: 'absolute',
+    bottom: 130,
+    left: '50%',
+    marginLeft: -50, // Metade da largura da imagem do botão para centralizar
+  },
+  buttonImage: {
+    width: 100,
+    height: 50,
+    resizeMode: 'contain',
+  },
+  elfImage: {
+    width: '100%',
+    resizeMode: 'contain',
+    position: 'absolute',
+    bottom:-435 ,
+    left: 56
+  },
+});

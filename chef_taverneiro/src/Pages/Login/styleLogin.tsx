@@ -36,8 +36,7 @@ export const styles = StyleSheet.create({
       marginBottom: 20,
     },
     button: {
-      backgroundColor: '#fff',
-    
+      backgroundColor: 'transparent',
     },
     orcImage: {
       width: 200,
