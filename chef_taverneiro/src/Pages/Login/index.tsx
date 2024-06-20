@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { styles } from "./styleLogin";
-import background from "../../src/assets/images/Madeira.png";
+import background from "../../assets/images/Madeira.png"
 import personagem from "../../assets/images/Orc.png";
 import acessar from "../../assets/images/balao_acessar.png";
 import { Link } from "@react-navigation/native";
