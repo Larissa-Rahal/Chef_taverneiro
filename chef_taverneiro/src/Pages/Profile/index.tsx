@@ -6,6 +6,8 @@ import { styles } from "./styleProfile";import background from "../../assets/ima
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { GetAllUsers } from '../../services/jsonServerApi';
+import { UserDetailsProps } from '../../@types/interface';
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,

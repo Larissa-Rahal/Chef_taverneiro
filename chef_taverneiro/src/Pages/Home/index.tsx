@@ -6,7 +6,7 @@ import background from "../../assets/images/Madeira.png"
 import { useEffect, useState } from 'react';
 import { getAllMeals } from '../../services/mealApi';
 import { MealByCategoryProps } from '../../@types/interface';
-import { MealCategory } from '../../components/MealCategory';
+import { MealCategory } from '../../components/Cards/MealCategory';
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -37,7 +37,7 @@ export const Home = () => {
                 <MealCategory item={categoryMeals} key={categoryMeals.idMeal} />
             ))}
         </ScrollView>
-     </ImageBackground>
+      </ImageBackground>
     </>
 }
 
