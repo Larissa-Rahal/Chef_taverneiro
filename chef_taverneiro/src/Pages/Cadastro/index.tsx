@@ -49,7 +49,7 @@ const CadastroScreen = () => {
       }
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
-      Alert.alert('Erro ao cadastrar usuário!');
+      Alert.alert("Erro ao cadastrar usuário:", error.message);
     }
   };
 
@@ -79,7 +79,6 @@ const CadastroScreen = () => {
             value={password}
             onChangeText={setPassword}
           />
-          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
           <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
             <Text style={styles.loginCadastroText}>Já tenho cadastro</Text>
           </TouchableOpacity>
