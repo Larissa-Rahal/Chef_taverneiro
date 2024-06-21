@@ -13,6 +13,7 @@ import { styles } from "./styleCadastro";
 import background from "../../assets/images/Pagina de Cadastro.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
 import api from '../../services/api/api'
+import { StackRouter } from "@react-navigation/native";
 
 const CadastroScreen = () => {
   const navigation = useNavigation();
