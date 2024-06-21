@@ -13,10 +13,18 @@ import { styles } from "./styleCadastro";
 import background from "../../assets/images/Pagina de Cadastro.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
 import api from "../../services/api/api";
-import { PostUser } from "../../services/jsonServerApi/index";
+import { PostUser } from "../../services/jsonServerApi/index";;
+import { StackNavigationProp } from "@react-navigation/stack";
+import { StackRoutesParamList } from "../../Routes/StackRoutes";
+
+export type CadastroScreenNavigationProp = StackNavigationProp<
+StackRoutesParamList,
+  'CadastroScreen'
+>;
+
 
 const CadastroScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<CadastroScreenNavigationProp>();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,7 +44,8 @@ const CadastroScreen = () => {
       setPassword("");
       Alert.alert("Usuário cadastrado com sucesso!");
       if (response.status === 201) {
-        navigation.navigate("Login");
+        navigation.navigate("LoginScreen");
+        console.log(response)
       }
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
