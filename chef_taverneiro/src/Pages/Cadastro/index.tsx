@@ -12,7 +12,8 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleCadastro";
 import background from "../../assets/images/Pagina de Cadastro.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
-import api from '../../services/api/api';
+import api from "../../services/api/api";
+import { PostUser } from "../../services/jsonServerApi/index";;
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackRoutesParamList } from "../../Routes/StackRoutes";
 
@@ -41,7 +42,7 @@ const CadastroScreen = () => {
       setName("");
       setEmail("");
       setPassword("");
-      Alert.alert('Usuário cadastrado com sucesso!');
+      Alert.alert("Usuário cadastrado com sucesso!");
       if (response.status === 201) {
         navigation.navigate("LoginScreen");
         console.log(response)
@@ -79,15 +80,13 @@ const CadastroScreen = () => {
             onChangeText={setPassword}
           />
           <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
             <Text style={styles.loginCadastroText}>Já tenho cadastro</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.loginImageContainer}>
-          <TouchableOpacity
-            style={styles.loginButton}
-            onPress={handleSubmit}
-          >
+          <TouchableOpacity style={styles.loginButton} onPress={handleSubmit}>
             <Image source={cadastro} style={styles.loginButtonImage} />
           </TouchableOpacity>
         </View>

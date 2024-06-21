@@ -4,7 +4,8 @@ import CadastroScreen from "../Pages/Cadastro"
 import LoginScreen from "../Pages/Login"
 
 export const Routes = () => {
-    return <NavigationContainer>
+    return (<NavigationContainer>
         <LoginScreen/>
     </NavigationContainer>
-}
+  );
+};

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   View,
@@ -9,18 +8,19 @@ import {
   ImageBackground,
   Alert,
 } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleLogin";
 import background from "../../assets/images/Pagina de Login.png";
 import acessar from "../../assets/images/balao_acessar.png";
-import api from '../../services/api/api';
-import { setItem, getItem } from '../../services/storage/LocalStorageFuncs'; 
+import api from "../../services/api/api";
+import { setItem, getItem } from "../../services/storage/LocalStorageFuncs";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackRoutesParamList } from "../../Routes/StackRoutes";
+import { GetAllUsers } from "../../services/jsonServerApi";
 
 export type LoginScreenNavigationProp = StackNavigationProp<
-StackRoutesParamList,
-  'LoginScreen'
+  StackRoutesParamList,
+  "LoginScreen"
 >;
 
 type UserDetailsProps = {
@@ -28,34 +28,35 @@ type UserDetailsProps = {
   nome: string;
   email: string;
   senha: string;
-}
+};
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [senha,setSenha] = useState('');
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const navigation = useNavigation();
 
   const handleSubmit = async () => {
     try {
-      const {data} = await api.get('/users');
-      const user = data.find((u: UserDetailsProps)  => u.email === email && u.senha === senha);
+      const { data } = await GetAllUsers();
+      const user = data.find(
+        (u: UserDetailsProps) => u.email === email && u.senha === senha
+      );
 
       if (user) {
-        Alert.alert('Login realizado com sucesso!');
-        setItem('usuarioLogado', user);
-        
+        Alert.alert("Login realizado com sucesso!");
+        // setItem("usuarioLogado", user);
       } else {
-        Alert.alert('Usuário ou senha inválidos');
+        Alert.alert("Usuário ou senha inválidos");
         handleZerar();
       }
     } catch (error) {
-      console.error('Erro ao realizar login', error);
+      console.error("Erro ao realizar login", error);
     }
   };
 
   const handleZerar = () => {
-    setEmail('');
-    setSenha('');
+    setEmail("");
+    setSenha("");
   };
 
   return (
