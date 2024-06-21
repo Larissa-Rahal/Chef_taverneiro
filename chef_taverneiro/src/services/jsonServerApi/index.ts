@@ -1,15 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 
 const jsonServerApi = axios.create({
-    baseURL: 'http://192.168.1.7:3001/'
+    baseURL: 'https://json-server2530.serveo.net/'
 })
-
-export interface UserDetailsProps {
-    id: string;
-    nome: string;
-    email: string;
-    senha: string;
-}
 
 export async function PostUser(id:string) {
     const url = 'users/' + id
@@ -23,16 +16,16 @@ export async function PostUser(id:string) {
     }
 }
 
-// export  function GetAllUsers() {
-//     const url = 'users' 
+export  function GetAllUsers() {
+    const url = 'users' 
     
-//     try{
-//         const response =  jsonServerApi.get(url);
-//         console.log(response)
-//         return response;
+    try{
+        const response =  jsonServerApi.get(url);
+        console.log(response)
+        return response;
 
-//     } catch(erro) {
-//         console.error('Erro de requisição:', erro)
-//         throw erro;
-//     }
-// }
+    } catch(erro) {
+        console.error('Erro de requisição:', erro)
+        throw erro;
+    }
+}
