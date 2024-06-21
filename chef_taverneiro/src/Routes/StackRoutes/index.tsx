@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,14 +13,6 @@ const AppNavigator = () => {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Cadastro" component={CadastroScreen} />
       </Stack.Navigator>
-
-      <Stack.Navigator initialRouteName="Cadastro">
-        <Stack.Screen name="Cadastro" component={CadastroScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-      </Stack.Navigator>
-
-
-
     </NavigationContainer>
   );
 };
