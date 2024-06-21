@@ -1,5 +1,5 @@
 import { TouchableOpacity, Text, Image } from "react-native";
-import { MealByCategoryProps } from "../../services/mealApi";
+import { MealByCategoryProps } from "../../@types/interface";
 import { styles } from "./styles"
 
 interface MealCategoryComponentProps {
