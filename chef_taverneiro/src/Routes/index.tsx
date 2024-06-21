@@ -1,9 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native"
-import { BottomTabRoutes } from "./BottomTabRoutes"
-import CadastroScreen from "../Pages/Cadastro"
+import { NavigationContainer } from "@react-navigation/native";
+import { BottomTabRoutes } from "./BottomTabRoutes";
+import CadastroScreen from "../Pages/Cadastro";
 
 export const Routes = () => {
-    return <NavigationContainer>
-        <CadastroScreen/>
+  return (
+    <NavigationContainer>
+      <BottomTabRoutes />
     </NavigationContainer>
-}
+  );
+};

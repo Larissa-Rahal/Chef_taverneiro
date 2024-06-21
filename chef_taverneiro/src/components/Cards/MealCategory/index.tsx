@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, Image } from "react-native"
+import { TouchableOpacity, Text, Image } from "react-native";
 import { styles } from "./styles"
 import { MealByCategoryProps } from "../../../@types/interface";
 
@@ -7,7 +7,7 @@ interface MealCategoryComponentProps {
 }
 
 export const MealCategory = ({ item }: MealCategoryComponentProps) => {
-    return <TouchableOpacity style={styles.buttonMeal} key={item.idMeal}>
+    return <TouchableOpacity style={styles.buttonMeal}>
         <Image source={{ uri: item.strMealThumb }} style={styles.cardImage} />
         <Text style={styles.mealText}>
             {item.strMeal}

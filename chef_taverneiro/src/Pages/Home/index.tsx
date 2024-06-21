@@ -32,10 +32,10 @@ export const Home = () => {
 
     return<>
      <ImageBackground source={background} style={styles.background}>
-        <ScrollView>
-          {receitas.map((categoryMeals) => (
-            <MealCategory item={categoryMeals}/>
-          ))}
+     <ScrollView>
+            {receitas.map((categoryMeals) => (
+                <MealCategory item={categoryMeals} key={categoryMeals.idMeal} />
+            ))}
         </ScrollView>
       </ImageBackground>
     </>
