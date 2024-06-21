@@ -6,6 +6,7 @@ import { Search } from "../../Pages/Search";
 import { Favorites } from "../../Pages/Favorites";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHeart, faHouse, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
+import { MealById } from "../../Pages/ReceitaEspecifica";
 
 
 
@@ -16,7 +17,8 @@ export type RootTabParamList = {
     Home: undefined,
     Search: undefined,
     Favorites: undefined,
-    Profile: undefined
+    Profile: undefined,
+    MealById: undefined
 }
 
 export function BottomTabRoutes() {

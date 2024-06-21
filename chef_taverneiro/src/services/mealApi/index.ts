@@ -17,7 +17,7 @@ export async function getItensByCategory( nome: string ): Promise<AxiosResponse<
     }
 }
 
-export async function getMealDetailsById(id: string): Promise<AxiosResponse<{ meals: MealDetailsProps[] }, any>> {
+export async function getMealDetailsById(id: string) {
     const url = `lookup.php?i=${id}`;
 
     try {
