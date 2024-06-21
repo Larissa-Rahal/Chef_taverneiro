@@ -4,14 +4,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../../Pages/Login';
 import CadastroScreen from '../../Pages/Cadastro';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<StackRoutesParamList>();
+
+export type StackRoutesParamList = {
+    LoginScreen: undefined,
+    CadastroScreen: undefined,
+}
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Cadastro" component={CadastroScreen} />
+      <Stack.Navigator initialRouteName="LoginScreen">
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="CadastroScreen" component={CadastroScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

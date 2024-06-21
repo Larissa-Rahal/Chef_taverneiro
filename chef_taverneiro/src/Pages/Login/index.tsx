@@ -12,34 +12,38 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { styles } from "./styleLogin";
 import background from "../../assets/images/Pagina de Login.png";
-import personagem from "../../assets/images/Orc.png";
 import acessar from "../../assets/images/balao_acessar.png";
 import api from '../../services/api/api';
 import { setItem, getItem } from '../../services/storage/LocalStorageFuncs'; 
+import { StackNavigationProp } from "@react-navigation/stack";
+import { StackRoutesParamList } from "../../Routes/StackRoutes";
+
+export type LoginScreenNavigationProp = StackNavigationProp<
+StackRoutesParamList,
+  'LoginScreen'
+>;
+
+type UserDetailsProps = {
+  id: string;
+  nome: string;
+  email: string;
+  senha: string;
+}
 
 const LoginScreen = () => {
-  const [login, setLogin] = useState({ email: '', senha: '' });
+  const [email, setEmail] = useState('');
+  const [senha,setSenha] = useState('');
   const navigation = useNavigation();
-
-  const handleChange = (name, value) => {
-    setLogin({ ...login, [name]: value });
-  };
 
   const handleSubmit = async () => {
     try {
-      const response = await api.get('/users');
-      const user = response.data.filter(data => data.email === login.email && data.senha === login.senha);
+      const {data} = await api.get('/users');
+      const user = data.find((u: UserDetailsProps)  => u.email === email && u.senha === senha);
 
-      if (user.length > 0) {
+      if (user) {
         Alert.alert('Login realizado com sucesso!');
         setItem('usuarioLogado', user);
         
-        const favoritos = getItem('favoritos') || [];
-        if (!favoritos || favoritos.length === 0) {
-          navigation.navigate('Home');
-        } else {
-          navigation.navigate('Favoritos');
-        }
       } else {
         Alert.alert('Usuário ou senha inválidos');
         handleZerar();
@@ -50,10 +54,8 @@ const LoginScreen = () => {
   };
 
   const handleZerar = () => {
-    setLogin({
-      email: '',
-      senha: ''
-    });
+    setEmail('');
+    setSenha('');
   };
 
   return (
@@ -63,16 +65,16 @@ const LoginScreen = () => {
           placeholder="Login"
           placeholderTextColor="#fff"
           style={styles.input}
-          value={login.email}
-          onChangeText={(value) => handleChange('email', value)}
+          value={email}
+          onChangeText={(e) => setEmail(e)}
         />
         <TextInput
           placeholder="Senha"
           placeholderTextColor="#fff"
           secureTextEntry
           style={styles.input}
-          value={login.senha}
-          onChangeText={(value) => handleChange('senha', value)}
+          value={senha}
+          onChangeText={(e) => setSenha(e)}
         />
         <View>
           <Text style={styles.signupText}>Não tem login?</Text>
