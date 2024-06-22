@@ -62,3 +62,9 @@ export interface UserDetailsProps {
     senha: string;
 }
 
+export interface UserProps {
+    nome: string;
+    email: string;
+    senha: string;
+}
+

@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import { getMealByCategoryListProps } from '../../@types/interface';
+
+import { getMealByCategoryListProps, MealByCategoryProps, MealDetailsProps } from '../../@types/interface';
 
 const mealApi = axios.create({
     baseURL: 'https://www.themealdb.com/api/json/v1/1/'
@@ -44,48 +45,19 @@ export async function getAllMeals() {
     }
     
     return allMeals;
+
+ 
 }
 
-export interface MealByIngredientProps {
-    strMeal: string,
-    strMealThumb: string,
-    idMeal: number
-}
+export async function getMealByName(nome: string): Promise<MealByCategoryProps[]> {
+    const url = `search.php?s=${nome}`;
 
-export interface getMealByIngredientListProps {
-    meals: MealByIngredientProps[]
-}
+    try {
+        const response = await mealApi.get(url);
+        return response.data.meals; // Retorna apenas a lista de refeições
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        throw error;
+    }
 
-export function getItensByIngredient(ingredient: string): Promise<AxiosResponse<getMealByIngredientListProps, any>> {
-    const url = 'filter.php?i=' + ingredient;
-    return mealApi.get(url);
-}
-
-export interface MealByNameProps {
-    strMeal: string,
-    strMealThumb: string,
-    idMeal: number
-}
-
-export interface getMealByNameListProps {
-    meals: MealByNameProps[]
-}
-
-export function getItensByName(name: string): Promise<AxiosResponse<getMealByNameListProps, any>> {
-    const url = 'search.php?s=' + name;
-    return mealApi.get(url);
-}
-
-export interface MealByAreaProps {
-    strMeal: string,
-    idMeal: number
-}
-
-export interface getMealByAreaListProps {
-    meals: MealByAreaProps[]
-}
-
-export function getItensByArea(area: string): Promise<AxiosResponse<getMealByAreaListProps, any>> {
-    const url = 'filter.php?a=' + area;
-    return mealApi.get(url);
 }

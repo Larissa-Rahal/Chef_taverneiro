@@ -1,47 +1,29 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    buttonMeal: {
-        backgroundColor: '#1f1e25',
-        padding: 15,
-        borderRadius: 50,
-        alignItems: 'center',
-        marginVertical: 5,
-        flexDirection: "row",
-        justifyContent: "space-between"
-    },
-    mealText: {
-        marginLeft: 5,
-        color: '#FFF',
-        fontSize: 16,
-        width:"80%",
-    },
-    container: {
-        flex: 1,
-        backgroundColor: '#121015',
-        paddingHorizontal: 30,
-        paddingTop: 60,
-    },
-	title: {
-        color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
     cardContainer: {
-        backgroundColor: '#fff',
-        borderRadius: 8,
-        elevation: 3,
-        marginVertical: 10,
-        marginHorizontal: 20,
-        padding: 10,
-        flexDirection: 'row',
+        backgroundColor: 'rgba(237, 222, 199, 0.9)', // Cor de fundo com transparência
+        borderRadius: 5,
+        width: 300,
+        padding: 16,
+        marginBottom: 16,
+        justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center', // Centraliza o conteúdo horizontalmente
+        flex: 1,
     },
     cardImage: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        marginRight: 10,
+        width: '100%',
+        height: 150,
+        borderRadius: 5,
     },
+    mealText: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: 8,
+    },
+    link: {
+        color: '#007bff',
+        textDecorationLine: 'none',
+      }, 
 })
