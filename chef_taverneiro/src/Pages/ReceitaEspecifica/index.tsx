@@ -15,7 +15,7 @@ interface MealByIdProps {
   mealId: string; 
 }
 
-export const MealById = ({ mealId }: MealByIdProps) => {
+export const ReceitaEspecifica = ({ mealId }: MealByIdProps) => {
   const [mealDetails, setMealDetails] = useState<MealDetailsProps | null>(null);
 
   useEffect(() => {
