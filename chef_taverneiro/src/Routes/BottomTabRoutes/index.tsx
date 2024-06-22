@@ -40,15 +40,6 @@ export function BottomTabRoutes() {
                     ),
                 }}
             />
-            <Tab.Screen
-                name="Search"
-                component={Search}
-                options={{
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesomeIcon icon={faMagnifyingGlass} color={color} size={size} />
-                    ),
-                }}
-            />
              <Tab.Screen
                 name="Favorites"
                 component={Favorites}
