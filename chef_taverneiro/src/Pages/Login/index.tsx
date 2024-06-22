@@ -20,7 +20,7 @@ import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 
 export type LoginScreenNavigationProp = StackNavigationProp<
   StackRoutesParamList,
-  "LoginScreen"
+  "ReceitaEspecifica"
 >;
 
 export type HomeScreenNavigationProp = BottomTabNavigationProp<

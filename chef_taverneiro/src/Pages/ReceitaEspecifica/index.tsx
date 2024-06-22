@@ -15,40 +15,45 @@ interface MealByIdProps {
   mealId: string; 
 }
 
-export const ReceitaEspecifica = ({ mealId }: MealByIdProps) => {
+export const ReceitaEspecifica = () => {
   const [mealDetails, setMealDetails] = useState<MealDetailsProps | null>(null);
 
-  useEffect(() => {
-    async function fetchMealDetails() {
-      try {
-        const response = await getMealDetailsById(mealId);
-        const meal = response.data.meals; 
-        setMealDetails(meal);
-      } catch (error) {
-        console.error('Erro na requisição:', error);
-      }
-    }
+  // useEffect(() => {
+  //   async function fetchMealDetails() {
+  //     try {
+  //       const response = await getMealDetailsById(mealId);
+  //       const meal = response.data.meals; 
+  //       setMealDetails(meal);
+  //     } catch (error) {
+  //       console.error('Erro na requisição:', error);
+  //     }
+  //   }
 
-    fetchMealDetails();
-  }, [mealId]);
+  //   fetchMealDetails();
+  // }, [mealId]);
 
   if (!mealDetails) {
     return <Text>Carregando...</Text>;
   }
 
-
   return (
-      <View>
-        <Image source={{ uri: mealDetails.strMealThumb }} style={styles.mealImage} />
-        <Text style={styles.mealName}>{mealDetails.strMeal}</Text>
-        <Text style={styles.mealArea}>{mealDetails.strArea}</Text>
-
-        {mealDetails.strIngredient1 && (
-          <Text>{`${mealDetails.strIngredient1} - ${mealDetails.strMeasure1}`}</Text>
-        )}
-       
-      </View>
+    <View>
+      <Text>Detalhe</Text>
+    </View>
   );
+
+  // return (
+  //     <View>
+  //       <Image source={{ uri: mealDetails.strMealThumb }} style={styles.mealImage} />
+  //       <Text style={styles.mealName}>{mealDetails.strMeal}</Text>
+  //       <Text style={styles.mealArea}>{mealDetails.strArea}</Text>
+
+  //       {mealDetails.strIngredient1 && (
+  //         <Text>{`${mealDetails.strIngredient1} - ${mealDetails.strMeasure1}`}</Text>
+  //       )}
+       
+  //     </View>
+  // );
 };
 
 const styles = StyleSheet.create({
