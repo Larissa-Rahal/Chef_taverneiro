@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    minHeight:'100%',
+    minWidth: '100%'
   },
   loginContainer: {
     flex: 1,

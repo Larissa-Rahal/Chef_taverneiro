@@ -38,7 +38,7 @@ const CadastroScreen = () => {
         senha: password,
       });
       console.log("Usuário cadastrado com sucesso:", response.data);
-
+      
       setName("");
       setEmail("");
       setPassword("");
@@ -52,9 +52,12 @@ const CadastroScreen = () => {
       Alert.alert("Erro ao cadastrar usuário:");
     }
   };
-
+  
   return (
-    <ImageBackground style={styles.loginBackground} source={background}>
+    <>
+    <View>
+      <ImageBackground style={styles.loginBackground} source={background}/>
+    </View>
       <View style={styles.loginContainer}>
         <View style={styles.loginInputContainer}>
           <TextInput
@@ -63,14 +66,14 @@ const CadastroScreen = () => {
             style={styles.loginInput}
             value={name}
             onChangeText={setName}
-          />
+            />
           <TextInput
             placeholder="E-mail"
             placeholderTextColor="#fff"
             style={styles.loginInput}
             value={email}
             onChangeText={setEmail}
-          />
+            />
           <TextInput
             placeholder="Senha"
             placeholderTextColor="#fff"
@@ -78,7 +81,7 @@ const CadastroScreen = () => {
             style={styles.loginInput}
             value={password}
             onChangeText={setPassword}
-          />
+            />
           <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
             <Text style={styles.loginCadastroText}>Já tenho cadastro</Text>
           </TouchableOpacity>
@@ -90,7 +93,7 @@ const CadastroScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </ImageBackground>
+</>
   );
 };
 

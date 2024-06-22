@@ -62,5 +62,3 @@ export const Home = () => {
     </ImageBackground>
   );
 };
-
-

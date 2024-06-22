@@ -10,7 +10,7 @@ const Stack = createStackNavigator<StackRoutesParamList>();
 export type StackRoutesParamList = {
     LoginScreen: undefined,
     CadastroScreen: undefined,
-    BottomTabRoutes: undefined,
+    Home: undefined,
 }
 
 export function AppNavigator () {
@@ -18,7 +18,7 @@ export function AppNavigator () {
       <Stack.Navigator initialRouteName="LoginScreen">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="CadastroScreen" component={CadastroScreen} />
-        <Stack.Screen name="BottomTabRoutes" component={BottomTabRoutes} />
+        <Stack.Screen name="Home" component={BottomTabRoutes} />
       </Stack.Navigator>
   );
 };
