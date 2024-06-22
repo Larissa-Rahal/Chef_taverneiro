@@ -12,15 +12,20 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleLogin";
 import background from "../../assets/images/Pagina de Login.png";
 import acessar from "../../assets/images/balao_acessar.png";
-import api from "../../services/api/api";
-import { setItem, getItem } from "../../services/storage/LocalStorageFuncs";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackRoutesParamList } from "../../Routes/StackRoutes";
 import { GetAllUsers } from "../../services/jsonServerApi";
+import { RootTabParamList } from "../../Routes/BottomTabRoutes";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 
 export type LoginScreenNavigationProp = StackNavigationProp<
   StackRoutesParamList,
   "LoginScreen"
+>;
+
+export type HomeScreenNavigationProp = BottomTabNavigationProp<
+  RootTabParamList,
+  'Home'
 >;
 
 type UserDetailsProps = {
@@ -33,7 +38,7 @@ type UserDetailsProps = {
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleSubmit = async () => {
     try {
@@ -44,7 +49,7 @@ const LoginScreen = () => {
 
       if (user) {
         Alert.alert("Login realizado com sucesso!");
-        // setItem("usuarioLogado", user);
+        navigation.navigate('Home');
       } else {
         Alert.alert("Usuário ou senha inválidos");
         handleZerar();
