@@ -49,7 +49,7 @@ const CadastroScreen = () => {
       }
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
-      Alert.alert("Erro ao cadastrar usuário:", error.message);
+      Alert.alert("Erro ao cadastrar usuário:");
     }
   };
 
