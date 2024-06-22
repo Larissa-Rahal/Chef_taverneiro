@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,42 +6,84 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  Alert,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleLogin";
-import background from "../../assets/images/Madeira.png";
-import personagem from "../../assets/images/Orc.png";
+import background from "../../assets/images/Pagina de Login.png";
 import acessar from "../../assets/images/balao_acessar.png";
-import { Link } from "@react-navigation/native";
+import api from "../../services/api/api";
+import { setItem, getItem } from "../../services/storage/LocalStorageFuncs";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { StackRoutesParamList } from "../../Routes/StackRoutes";
+import { GetAllUsers } from "../../services/jsonServerApi";
+
+export type LoginScreenNavigationProp = StackNavigationProp<
+  StackRoutesParamList,
+  "LoginScreen"
+>;
+
+type UserDetailsProps = {
+  id: string;
+  nome: string;
+  email: string;
+  senha: string;
+};
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const navigation = useNavigation();
+
+  const handleSubmit = async () => {
+    try {
+      const { data } = await GetAllUsers();
+      const user = data.find(
+        (u: UserDetailsProps) => u.email === email && u.senha === senha
+      );
+
+      if (user) {
+        Alert.alert("Login realizado com sucesso!");
+        // setItem("usuarioLogado", user);
+      } else {
+        Alert.alert("Usuário ou senha inválidos");
+        handleZerar();
+      }
+    } catch (error) {
+      console.error("Erro ao realizar login", error);
+    }
+  };
+
+  const handleZerar = () => {
+    setEmail("");
+    setSenha("");
+  };
+
   return (
-    <ImageBackground source={background} style={styles.background}>
-
+    <ImageBackground style={styles.background} source={background}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Chef Taberneiro</Text>
-        </View>
-
         <TextInput
           placeholder="Login"
           placeholderTextColor="#fff"
           style={styles.input}
+          value={email}
+          onChangeText={(e) => setEmail(e)}
         />
         <TextInput
           placeholder="Senha"
           placeholderTextColor="#fff"
           secureTextEntry
           style={styles.input}
+          value={senha}
+          onChangeText={(e) => setSenha(e)}
         />
         <View>
           <Text style={styles.signupText}>Não tem login?</Text>
-
           <Text>Cadastre-se</Text>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Image source={acessar} />
         </TouchableOpacity>
-        <Image source={personagem} style={styles.orcImage} />
       </View>
     </ImageBackground>
   );

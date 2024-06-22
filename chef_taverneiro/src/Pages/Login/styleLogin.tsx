@@ -12,17 +12,6 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       padding: 20,
     },
-    header: {
-      backgroundColor: '#6B3F24',
-      padding: 10,
-      borderRadius: 10,
-      marginBottom: 20,
-    },
-    headerText: {
-      color: '#fff',
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
     input: {
       width: '80%',
       backgroundColor: '#6B3F24',

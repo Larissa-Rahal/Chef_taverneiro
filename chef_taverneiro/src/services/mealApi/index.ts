@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+
 import { getMealByCategoryListProps, MealByCategoryProps, MealDetailsProps } from '../../@types/interface';
 
 const mealApi = axios.create({
@@ -35,15 +36,16 @@ export async function getAllMeals() {
 
     const allMeals: getMealByCategoryListProps = {
         meals: [],
+        
     };
 
-    
     for (const category of categories) {
         const mealsResponse = await mealApi.get(`filter.php?c=${category.strCategory}`);
         allMeals.meals.push(...mealsResponse.data.meals);
     }
     
     return allMeals;
+
  
 }
 
@@ -57,4 +59,5 @@ export async function getMealByName(nome: string): Promise<MealByCategoryProps[]
         console.error('Erro na requisição:', error);
         throw error;
     }
+
 }
