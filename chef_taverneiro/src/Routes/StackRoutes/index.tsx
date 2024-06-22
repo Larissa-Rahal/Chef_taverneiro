@@ -12,7 +12,7 @@ export type StackRoutesParamList = {
     LoginScreen: undefined,
     CadastroScreen: undefined,
     Home: undefined,
-    ReceitaEspecifica: undefined,
+    ReceitaEspecifica: { mealId: number },
 }
 
 export function AppNavigator () {

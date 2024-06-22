@@ -23,7 +23,7 @@ export const MealCategory = ({ item }: MealCategoryComponentProps) => {
       <Text style={styles.mealText}>{item.strMeal}</Text>
       <TouchableOpacity>
         <Text
-          onPress={() => navigation.navigate("ReceitaEspecifica")}
+          onPress={() => navigation.navigate("ReceitaEspecifica", { mealId: item.idMeal })}
           style={styles.link}
         >
           Learn more

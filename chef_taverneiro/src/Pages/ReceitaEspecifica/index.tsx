@@ -5,6 +5,7 @@ import { MealDetailsProps } from '../../@types/interface';
 import { getMealDetailsById } from '../../services/mealApi';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { RootTabParamList } from '../../Routes/BottomTabRoutes';
+import { Link, useNavigation, useRoute } from "@react-navigation/native";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -18,42 +19,36 @@ interface MealByIdProps {
 export const ReceitaEspecifica = () => {
   const [mealDetails, setMealDetails] = useState<MealDetailsProps | null>(null);
 
-  // useEffect(() => {
-  //   async function fetchMealDetails() {
-  //     try {
-  //       const response = await getMealDetailsById(mealId);
-  //       const meal = response.data.meals; 
-  //       setMealDetails(meal);
-  //     } catch (error) {
-  //       console.error('Erro na requisição:', error);
-  //     }
-  //   }
+  const route = useRoute();
+  const { mealId } = route.params as MealByIdProps;
 
-  //   fetchMealDetails();
-  // }, [mealId]);
+  useEffect(() => {
+    async function fetchMealDetails() {
+      try {
+        const response = await getMealDetailsById(mealId);
+        console.log("meal: ", response.data.meals[0]);
+        const meal = response.data.meals[0]; 
+        setMealDetails(meal);
+      } catch (error) {
+        console.error('Erro na requisição:', error);
+      }
+    }
 
-  if (!mealDetails) {
-    return <Text>Carregando...</Text>;
-  }
+    fetchMealDetails();
+  }, [mealId]);
 
   return (
-    <View>
-      <Text>Detalhe</Text>
-    </View>
-  );
+      <View>
+        <Image source={{ uri: mealDetails?.strMealThumb }} style={styles.mealImage} />
+        <Text style={styles.mealName}>{mealDetails?.strMeal}</Text>
+        <Text style={styles.mealArea}>{mealDetails?.strArea}</Text>
 
-  // return (
-  //     <View>
-  //       <Image source={{ uri: mealDetails.strMealThumb }} style={styles.mealImage} />
-  //       <Text style={styles.mealName}>{mealDetails.strMeal}</Text>
-  //       <Text style={styles.mealArea}>{mealDetails.strArea}</Text>
-
-  //       {mealDetails.strIngredient1 && (
-  //         <Text>{`${mealDetails.strIngredient1} - ${mealDetails.strMeasure1}`}</Text>
-  //       )}
+        {mealDetails?.strIngredient1 && (
+          <Text>{`${mealDetails.strIngredient1} - ${mealDetails.strMeasure1}`}</Text>
+        )}
        
-  //     </View>
-  // );
+      </View>
+  );
 };
 
 const styles = StyleSheet.create({

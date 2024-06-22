@@ -41,22 +41,23 @@ const LoginScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleSubmit = async () => {
-    try {
-      const { data } = await GetAllUsers();
-      const user = data.find(
-        (u: UserDetailsProps) => u.email === email && u.senha === senha
-      );
+    navigation.navigate('Home');
+    // try {
+    //   const { data } = await GetAllUsers();
+    //   const user = data.find(
+    //     (u: UserDetailsProps) => u.email === email && u.senha === senha
+    //   );
 
-      if (user) {
-        Alert.alert("Login realizado com sucesso!");
-        navigation.navigate('Home');
-      } else {
-        Alert.alert("Usuário ou senha inválidos");
-        handleZerar();
-      }
-    } catch (error) {
-      console.error("Erro ao realizar login", error);
-    }
+    //   if (user) {
+    //     Alert.alert("Login realizado com sucesso!");
+    //     navigation.navigate('Home');
+    //   } else {
+    //     Alert.alert("Usuário ou senha inválidos");
+    //     handleZerar();
+    //   }
+    // } catch (error) {
+    //   console.error("Erro ao realizar login", error);
+    // }
   };
 
   const handleZerar = () => {
