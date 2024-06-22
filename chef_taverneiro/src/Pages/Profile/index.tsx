@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
 import {
@@ -11,6 +12,14 @@ import {
 import { useEffect, useState } from "react";
 import { styles } from "./styleProfile";
 import background from "../../assets/images/Madeira.png";
+=======
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs/';
+import { RootTabParamList } from '../../Routes/BottomTabRoutes';
+import { ImageBackground, Text, View, Image, TextInput, ScrollView } from 'react-native';
+import { useEffect, useState } from 'react';
+import { styles } from "./styleProfile";
+import background from "../../assets/images/Madeira.png"
+>>>>>>> 2f2370ff3544bd224ac716859be62fb618ad105d
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
