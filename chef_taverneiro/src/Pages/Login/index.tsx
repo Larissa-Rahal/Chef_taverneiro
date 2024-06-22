@@ -23,9 +23,9 @@ export type LoginScreenNavigationProp = StackNavigationProp<
   "LoginScreen"
 >;
 
-export type HomeScreenNavigationProp = BottomTabNavigationProp<
+export type BottomTabsNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
-  'Home'
+  'BottomTabs'
 >;
 
 type UserDetailsProps = {
@@ -38,7 +38,7 @@ type UserDetailsProps = {
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+  const navigation = useNavigation<BottomTabsNavigationProp>();
 
   const handleSubmit = async () => {
     try {
@@ -49,7 +49,7 @@ const LoginScreen = () => {
 
       if (user) {
         Alert.alert("Login realizado com sucesso!");
-        navigation.navigate('Home');
+        navigation.navigate('BottomTabs');
       } else {
         Alert.alert("Usuário ou senha inválidos");
         handleZerar();
@@ -67,7 +67,7 @@ const LoginScreen = () => {
   return (
     <>
       <View>
-        <ImageBackground style={styles.background} source={background} />
+        <ImageBackground source={background}  style={styles.background}/>
       </View>
       <View style={styles.container}>
         <TextInput
