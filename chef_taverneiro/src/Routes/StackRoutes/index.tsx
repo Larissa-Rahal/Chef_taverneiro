@@ -11,16 +11,20 @@ const Stack = createStackNavigator<StackRoutesParamList>();
 export type StackRoutesParamList = {
     LoginScreen: undefined,
     CadastroScreen: undefined,
-    Home: undefined,
+    BottomTabs: undefined,
     ReceitaEspecifica: { mealId: number },
+
 }
 
 export function AppNavigator () {
   return (
-      <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Navigator initialRouteName="LoginScreen"
+      screenOptions={{
+        headerShown: false,
+    }}>
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="CadastroScreen" component={CadastroScreen} />
-        <Stack.Screen name="Home" component={BottomTabRoutes} />
+        <Stack.Screen name="BottomTabs" component={BottomTabRoutes} />
         <Stack.Screen name="ReceitaEspecifica" component={ReceitaEspecifica} />
       </Stack.Navigator>
   );

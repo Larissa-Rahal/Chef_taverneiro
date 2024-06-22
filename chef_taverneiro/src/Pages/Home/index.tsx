@@ -44,7 +44,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <ImageBackground source={background} style={styles.background}>
+      <ImageBackground source={background} style={styles.background}>
       <Image style={styles.tarjacheftaberneiro} source={tarjacheftaberneiro} />
       <TextInput
           style={styles.textInput}

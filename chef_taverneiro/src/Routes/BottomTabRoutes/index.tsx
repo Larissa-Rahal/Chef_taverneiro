@@ -1,14 +1,16 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image } from "react-native";
 import { Home } from "../../Pages/Home";
 import { Profile } from "../../Pages/Profile";
-import { Search } from "../../Pages/Search";
 import { Favorites } from "../../Pages/Favorites";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHeart, faHouse, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
-
+export type HomeScreenNavigationProp = BottomTabNavigationProp<
+  RootTabParamList,
+  'BottomTabs'
+>;
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -17,7 +19,7 @@ export type RootTabParamList = {
     Search: undefined,
     Favorites: undefined,
     Profile: undefined,
-    MealById: undefined
+    BottomTabs: undefined
 }
 
 export function BottomTabRoutes() {
@@ -29,7 +31,6 @@ export function BottomTabRoutes() {
             tabBarActiveTintColor: '#ebe1d5',
             tabBarInactiveTintColor: '#a1886abd',
         }}
-
         >
             <Tab.Screen
                 name="Home"
@@ -40,7 +41,7 @@ export function BottomTabRoutes() {
                     ),
                 }}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
                 name="Search"
                 component={Search}
                 options={{
@@ -48,7 +49,7 @@ export function BottomTabRoutes() {
                         <FontAwesomeIcon icon={faMagnifyingGlass} color={color} size={size} />
                     ),
                 }}
-            />
+            /> */}
              <Tab.Screen
                 name="Favorites"
                 component={Favorites}

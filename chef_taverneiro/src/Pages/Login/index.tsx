@@ -23,9 +23,9 @@ export type LoginScreenNavigationProp = StackNavigationProp<
   "ReceitaEspecifica"
 >;
 
-export type HomeScreenNavigationProp = BottomTabNavigationProp<
+export type BottomTabsNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
-  'Home'
+  'BottomTabs'
 >;
 
 type UserDetailsProps = {
@@ -38,7 +38,7 @@ type UserDetailsProps = {
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+  const navigation = useNavigation<BottomTabsNavigationProp>();
 
   const handleSubmit = async () => {
     navigation.navigate('Home');
@@ -48,16 +48,17 @@ const LoginScreen = () => {
     //     (u: UserDetailsProps) => u.email === email && u.senha === senha
     //   );
 
-    //   if (user) {
-    //     Alert.alert("Login realizado com sucesso!");
-    //     navigation.navigate('Home');
-    //   } else {
-    //     Alert.alert("Usuário ou senha inválidos");
-    //     handleZerar();
-    //   }
-    // } catch (error) {
-    //   console.error("Erro ao realizar login", error);
-    // }
+      if (user) {
+        Alert.alert("Login realizado com sucesso!");
+        navigation.navigate('BottomTabs');
+      } else {
+        Alert.alert("Usuário ou senha inválidos");
+        handleZerar();
+      }
+    } catch (error) {
+      console.error("Erro ao realizar login", error);
+    }
+
   };
 
   const handleZerar = () => {
@@ -68,7 +69,7 @@ const LoginScreen = () => {
   return (
     <>
       <View>
-        <ImageBackground style={styles.background} source={background} />
+        <ImageBackground source={background}  style={styles.background}/>
       </View>
       <View style={styles.container}>
         <TextInput

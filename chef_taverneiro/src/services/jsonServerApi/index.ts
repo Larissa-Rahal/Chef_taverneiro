@@ -2,11 +2,11 @@ import axios, { AxiosResponse } from 'axios';
 import { UserProps } from '../../@types/interface';
 
 const jsonServerApi = axios.create({
-    baseURL: 'https://json-server2530.serveo.net/'
+    baseURL: 'https://closing-definitely-dinosaur.ngrok-free.app'
 })
 
 export async function PostUser(user: UserProps) {
-    const url = 'users/'
+    const url = '/users/'
     
     try{
         const response = await jsonServerApi.post(url);
@@ -18,11 +18,10 @@ export async function PostUser(user: UserProps) {
 }
 
 export  function GetAllUsers() {
-    const url = 'users' 
+    const url = '/users' 
     
     try{
         const response =  jsonServerApi.get(url);
-        console.log(response)
         return response;
 
     } catch(erro) {
