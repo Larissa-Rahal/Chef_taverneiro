@@ -4,7 +4,7 @@ import CadastroScreen from "../Pages/Cadastro";
 
 export const Routes = () => {
     return( <NavigationContainer>
-        <CadastroScreen/>
+        <BottomTabRoutes/>
     </NavigationContainer>
   );
 };
