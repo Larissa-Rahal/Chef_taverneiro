@@ -3,23 +3,24 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../../Pages/Login';
 import CadastroScreen from '../../Pages/Cadastro';
+import { BottomTabRoutes } from '../BottomTabRoutes';
 
 const Stack = createStackNavigator<StackRoutesParamList>();
 
 export type StackRoutesParamList = {
     LoginScreen: undefined,
     CadastroScreen: undefined,
+    BottomTabRoutes: undefined,
 }
 
-const AppNavigator = () => {
+export function AppNavigator () {
   return (
-    <NavigationContainer>
       <Stack.Navigator initialRouteName="LoginScreen">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="CadastroScreen" component={CadastroScreen} />
+        <Stack.Screen name="BottomTabRoutes" component={BottomTabRoutes} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 };
 
-export default AppNavigator;
+

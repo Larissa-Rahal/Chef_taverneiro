@@ -1,7 +1,7 @@
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs/';
 import { RootTabParamList } from '../../Routes/BottomTabRoutes';
 import { ImageBackground, ScrollView, Text, TextInput, View } from 'react-native';
-import { styles } from "../Login/styleLogin";
+import { styles } from './style';
 import background from "../../assets/images/Madeira.png"
 import { useEffect, useState } from 'react';
 import { getAllMeals, getMealByName } from '../../services/mealApi';
@@ -46,17 +46,7 @@ export const Home = () => {
     <ImageBackground source={background} style={styles.background}>
       <ScrollView>
         <TextInput
-          style={{ 
-            marginTop: 50,
-            marginBottom: 20,
-            borderRadius: 8,
-            width: 300, 
-            height: 50,
-            backgroundColor: 'rgba(233, 233, 233, 0.8)',
-            paddingHorizontal: 10,
-            fontSize: 16,
-            alignSelf: 'center'
-          }}
+          style={styles.input}
           placeholder="Digite o nome da refeição"
           value={searchTerm}
           onChangeText={setSearchTerm}
