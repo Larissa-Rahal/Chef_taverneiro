@@ -2,15 +2,17 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
-    background: {
-        flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-      },
+  loginBackground: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    minHeight:'100%',
+    minWidth: '100%'
+  },
 
     tarjacheftaberneiro: {
         verticalAlign:'top',
-        width: 320,
+        width: '100%',
         height: 50,
         marginLeft:0,
         marginTop:0,
