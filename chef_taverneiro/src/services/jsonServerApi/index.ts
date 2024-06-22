@@ -1,11 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
+import { UserProps } from '../../@types/interface';
 
 const jsonServerApi = axios.create({
     baseURL: 'https://json-server2530.serveo.net/'
 })
 
-export async function PostUser(id:string) {
-    const url = 'users/' + id
+export async function PostUser(user: UserProps) {
+    const url = 'users/'
     
     try{
         const response = await jsonServerApi.post(url);

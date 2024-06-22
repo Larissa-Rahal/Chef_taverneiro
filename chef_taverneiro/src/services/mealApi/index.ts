@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { getMealByCategoryListProps, MealDetailsProps } from '../../@types/interface';
+import { getMealByCategoryListProps, MealByCategoryProps, MealDetailsProps } from '../../@types/interface';
 
 const mealApi = axios.create({
     baseURL: 'https://www.themealdb.com/api/json/v1/1/'
@@ -45,4 +45,16 @@ export async function getAllMeals() {
     
     return allMeals;
  
+}
+
+export async function getMealByName(nome: string): Promise<MealByCategoryProps[]> {
+    const url = `search.php?s=${nome}`;
+
+    try {
+        const response = await mealApi.get(url);
+        return response.data.meals; // Retorna apenas a lista de refeições
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        throw error;
+    }
 }
