@@ -20,7 +20,7 @@ import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 
 export type LoginScreenNavigationProp = StackNavigationProp<
   StackRoutesParamList,
-  "LoginScreen"
+  "ReceitaEspecifica"
 >;
 
 export type BottomTabsNavigationProp = BottomTabNavigationProp<
@@ -41,11 +41,12 @@ const LoginScreen = () => {
   const navigation = useNavigation<BottomTabsNavigationProp>();
 
   const handleSubmit = async () => {
-    try {
-      const { data } = await GetAllUsers();
-      const user = data.find(
-        (u: UserDetailsProps) => u.email === email && u.senha === senha
-      );
+    navigation.navigate('Home');
+    // try {
+    //   const { data } = await GetAllUsers();
+    //   const user = data.find(
+    //     (u: UserDetailsProps) => u.email === email && u.senha === senha
+    //   );
 
       if (user) {
         Alert.alert("Login realizado com sucesso!");
@@ -57,6 +58,7 @@ const LoginScreen = () => {
     } catch (error) {
       console.error("Erro ao realizar login", error);
     }
+
   };
 
   const handleZerar = () => {

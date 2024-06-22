@@ -6,8 +6,9 @@ import LoginScreen from "../Pages/Login";
 import { AppNavigator } from "./StackRoutes";
 
 export const Routes = () => {
-    return( <NavigationContainer>
-        <AppNavigator/>
+  return (
+    <NavigationContainer>
+      <AppNavigator />
     </NavigationContainer>
   );
 };
