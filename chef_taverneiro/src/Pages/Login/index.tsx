@@ -66,7 +66,10 @@ const LoginScreen = () => {
   };
 
   return (
-    <ImageBackground style={styles.background} source={background}>
+    <>
+      <View>
+        <ImageBackground style={styles.background} source={background} />
+      </View>
       <View style={styles.container}>
         <TextInput
           placeholder="Login"
@@ -91,7 +94,7 @@ const LoginScreen = () => {
           <Image source={acessar} />
         </TouchableOpacity>
       </View>
-    </ImageBackground>
+    </>
   );
 };
 

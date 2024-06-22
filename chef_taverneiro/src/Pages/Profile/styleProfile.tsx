@@ -4,8 +4,8 @@ export const styles = StyleSheet.create({
 
     background: {
         flex: 1,
-        width: 320,
-        height: 500,
+        width: 100,
+        height:100,
         resizeMode: 'cover',
         justifyContent: 'center'
       },
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        padding: 20,
+        padding: 20
       },
 
     circulo: {
@@ -87,7 +87,7 @@ export const styles = StyleSheet.create({
           paddingHorizontal: 5,
           paddingTop:8,
           marginTop:15,
-          marginBottom: 0,
+          marginBottom: 0
         },
 
         inputEmail: {
@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
           paddingHorizontal: 0,
           paddingTop:0,
           marginTop:50,
-          marginBottom: 100,
+          marginBottom: 100
         },
 
 

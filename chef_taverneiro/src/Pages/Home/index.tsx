@@ -1,8 +1,9 @@
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs/';
 import { RootTabParamList } from '../../Routes/BottomTabRoutes';
-import { ImageBackground, ScrollView, Text, TextInput, View } from 'react-native';
-import { styles } from './style';
+import { ImageBackground, ScrollView, Text, TextInput, View, Image } from 'react-native';
+import { styles } from "./styleHome";
 import background from "../../assets/images/Madeira.png"
+import tarjacheftaberneiro from "../../assets/images/TarjaChefTaberneiro.png";
 import { useEffect, useState } from 'react';
 import { getAllMeals, getMealByName } from '../../services/mealApi';
 import { MealByCategoryProps } from '../../@types/interface';
@@ -44,14 +45,16 @@ export const Home = () => {
 
   return (
     <ImageBackground source={background} style={styles.background}>
-      <ScrollView>
-        <TextInput
-          style={styles.input}
+      <Image style={styles.tarjacheftaberneiro} source={tarjacheftaberneiro} />
+      <TextInput
+          style={styles.textInput}
           placeholder="Digite o nome da refeição"
           value={searchTerm}
           onChangeText={setSearchTerm}
           onSubmitEditing={handleSearch} // Chame a função de busca ao pressionar Enter
         />
+      <ScrollView>
+        
         {receitas.map((categoryMeals) => (
           <MealCategory key={categoryMeals.idMeal} item={categoryMeals} />
         ))}
@@ -59,5 +62,3 @@ export const Home = () => {
     </ImageBackground>
   );
 };
-
-
