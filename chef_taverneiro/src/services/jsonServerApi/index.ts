@@ -2,11 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { UserProps } from '../../@types/interface';
 
 const jsonServerApi = axios.create({
-<<<<<<< HEAD
     baseURL: 'https://closing-definitely-dinosaur.ngrok-free.app/'
-=======
-    baseURL: 'https://closing-definitely-dinosaur.ngrok-free.app'
->>>>>>> b6e36d1bb4b33c01f9817cba8797524da227e69c
 })
 
 export async function PostUser(user: UserProps) {

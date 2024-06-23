@@ -86,23 +86,11 @@ const LoginScreen = () => {
         />
         <Pressable>
           <Text style={styles.signupText}>Não tem login?</Text>
-<<<<<<< HEAD
-        <Link to={{ screen: '/CadastroScreen'}}>
-          <TouchableOpacity>
-            <Text style={styles.cadastroButton}>Cadastre-se</Text>
-          </TouchableOpacity>
-        </Link>
-        </View>
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-            <Image source={acessar} />
-          </TouchableOpacity>
-=======
           <Text>Cadastre-se</Text>
         </Pressable>
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Image source={acessar} />
         </TouchableOpacity>
->>>>>>> 816a15418ba984b9ab3d696ef8e8977b7eeb72c9
       </View>
     </ImageBackground>
   );

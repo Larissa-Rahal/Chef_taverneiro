@@ -43,63 +43,57 @@ export const styles = StyleSheet.create({
           paddingBottom:10
         },
 
-        containerNome: {
+        containerImput: {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        },
-
-        flexTextNome: {
-          position: 'absolute',
-          flexDirection: 'row',
-          fontSize: 18,
-          fontWeight: 'bold',
-          color: 'white',
-          paddingBottom:50,
-          paddingRight:210
-        },
-
-        containerEmail: {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-
-        flexTextEmail: {
-            position: 'absolute',
-            flexDirection: 'row',
-            fontSize: 18,
-            fontWeight: 'bold',
-            color: 'white',
-            paddingBottom:120,
-            paddingRight:210 
+          padding: 20,
         },
 
         inputNome: {
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 2,
-          borderRadius:10,
+          width: '90%',
           backgroundColor: 'rgba(168,168,168,0.5)',
-          width: 270,
-          paddingHorizontal: 5,
-          paddingTop:8,
-          marginTop:15,
-          marginBottom: 0
-        },
+          padding: 10,
+          marginBottom: 10,
+          borderRadius: 20,
+          color: '#fff',
+        },    
+
+        // containerEmail: {
+        //   flex: 1,
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        //   marginBottom: '0%',
+        //   backgroundColor: 'red'
+        // },
+
+        // flexTextNome: {
+        //   position: 'absolute',
+        //   flexDirection: 'row',
+        //   fontSize: 18,
+        //   fontWeight: 'bold',
+        //   color: 'white',
+        //   paddingBottom:50,
+        //   paddingRight:210
+        // },
+
+        // flexTextEmail: {
+        //     // position: 'absolute',
+        //     flexDirection: 'row',
+        //     fontSize: 18,
+        //     fontWeight: 'bold',
+        //     color: 'white',
+        //     // paddingBottom:120,
+        //     // paddingRight:210 
+        // },
 
         inputEmail: {
-
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 2,
-          borderRadius:10,
+          width: '90%',
           backgroundColor: 'rgba(168,168,168,0.5)',
-          width: 270,
-          paddingHorizontal: 0,
-          paddingTop:0,
-          marginTop:50,
-          marginBottom: 100
+          padding: 10,
+          marginBottom: 10,
+          borderRadius: 20,
+          color: '#fff',
         },
 
 

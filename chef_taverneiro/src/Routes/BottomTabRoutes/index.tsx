@@ -42,8 +42,6 @@ export function BottomTabRoutes() {
                     ),
                 }}
             />
-<<<<<<< HEAD
-=======
             {/* <Tab.Screen
                 name="Search"
                 component={Search}
@@ -53,7 +51,6 @@ export function BottomTabRoutes() {
                     ),
                 }}
             /> */}
->>>>>>> b6e36d1bb4b33c01f9817cba8797524da227e69c
              <Tab.Screen
                 name="Favorites"
                 component={Favorites}

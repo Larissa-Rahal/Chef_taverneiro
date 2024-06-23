@@ -1,9 +1,8 @@
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
-import { useEffect, useState } from "react";
 import { styles } from "./styleProfile";
 import background from "../../assets/images/Madeira.png";
-import { ImageBackground, Text, View, Image, TextInput, ScrollView } from 'react-native';
+import { ImageBackground, Text, View, Image, TextInput } from "react-native";
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
@@ -15,21 +14,21 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 
 export const Profile = () => {
   return (
-    <>
-      <View>
-        <ImageBackground source={background} style={styles.background} />
-      </View>
+    <ImageBackground source={background} style={styles.background}>
       <View style={styles.container}>
+
         <View style={styles.containerCirculo}>
           <Image style={styles.circulo} source={circulo} />
         </View>
+        
         <FontAwesomeIcon
           style={styles.profileIcon}
           icon={faAddressCard}
           size={100}
         />
+
         <View>
-          <View style={styles.containerNome}>
+          <View style={styles.containerImput}>
             <Text style={styles.flexTextNome}>Nome:</Text>
             <TextInput
               style={styles.inputNome}
@@ -37,9 +36,7 @@ export const Profile = () => {
               editable={false}
               placeholder="Aqui estará o nome."
             />
-          </View>
 
-          <View style={styles.containerEmail}>
             <Text style={styles.flexTextEmail}>Email:</Text>
             <TextInput
               style={styles.inputEmail}
@@ -50,6 +47,6 @@ export const Profile = () => {
           </View>
         </View>
       </View>
-    </>
+    </ImageBackground>
   );
 };
