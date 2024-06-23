@@ -22,7 +22,6 @@ export  function GetAllUsers() {
     
     try{
         const response =  jsonServerApi.get(url);
-        console.log(response)
         return response;
 
     } catch(erro) {

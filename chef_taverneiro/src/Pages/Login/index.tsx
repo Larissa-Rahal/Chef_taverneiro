@@ -8,7 +8,7 @@ import {
   ImageBackground,
   Alert,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Link, useNavigation } from "@react-navigation/native";
 import { styles } from "./styleLogin";
 import background from "../../assets/images/Pagina de Login.png";
 import acessar from "../../assets/images/balao_acessar.png";
@@ -71,7 +71,7 @@ const LoginScreen = () => {
       </View>
       <View style={styles.container}>
         <TextInput
-          placeholder="Login"
+          placeholder="E-mail"
           placeholderTextColor="#fff"
           style={styles.input}
           value={email}
@@ -87,11 +87,15 @@ const LoginScreen = () => {
         />
         <View>
           <Text style={styles.signupText}>Não tem login?</Text>
-          <Text>Cadastre-se</Text>
+        <Link to={{ screen: '/CadastroScreen'}}>
+          <TouchableOpacity>
+            <Text style={styles.cadastroButton}>Cadastre-se</Text>
+          </TouchableOpacity>
+        </Link>
         </View>
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Image source={acessar} />
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+            <Image source={acessar} />
+          </TouchableOpacity>
       </View>
     </>
   );

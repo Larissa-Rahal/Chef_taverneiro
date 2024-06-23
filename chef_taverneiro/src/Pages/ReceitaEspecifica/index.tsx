@@ -5,6 +5,7 @@ import { MealDetailsProps } from '../../@types/interface';
 import { getMealDetailsById } from '../../services/mealApi';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { RootTabParamList } from '../../Routes/BottomTabRoutes';
+import { styles } from './stylePagEspecifica'
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -50,28 +51,3 @@ export const ReceitaEspecifica = ({ mealId }: MealByIdProps) => {
       </View>
   );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      resizeMode: 'cover',
-    },
-    content: {
-      padding: 16,
-    },
-    mealImage: {
-      width: '100%',
-      height: 200,
-      resizeMode: 'cover',
-      marginBottom: 16,
-    },
-    mealName: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 8,
-    },
-    mealArea: {
-      fontSize: 16,
-      color: 'gray',
-    },
-  });
