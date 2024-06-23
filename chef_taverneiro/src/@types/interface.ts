@@ -1,7 +1,7 @@
 export interface MealByCategoryProps {
     strMeal: string,
     strMealThumb: string,
-    idMeal: number
+    idMeal: string
 }
 export interface MealDetailsProps {
     idMeal: string;

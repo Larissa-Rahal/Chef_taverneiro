@@ -13,15 +13,13 @@ export type StackRoutesParamList = {
     CadastroScreen: undefined,
     BottomTabs: undefined,
     ReceitaEspecifica: { mealId: number },
-
 }
 
 export function AppNavigator () {
   return (
-      <Stack.Navigator initialRouteName="LoginScreen"
-      screenOptions={{
-        headerShown: false,
-    }}>
+      <Stack.Navigator initialRouteName="LoginScreen" screenOptions={{
+        headerShown: false
+      }}>
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="CadastroScreen" component={CadastroScreen} />
         <Stack.Screen name="BottomTabs" component={BottomTabRoutes} />

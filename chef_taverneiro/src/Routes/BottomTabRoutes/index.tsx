@@ -19,7 +19,8 @@ export type RootTabParamList = {
     Search: undefined,
     Favorites: undefined,
     Profile: undefined,
-    BottomTabs: undefined
+    BottomTabs: undefined,
+    MealById: undefined,
 }
 
 export function BottomTabRoutes() {
