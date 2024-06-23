@@ -7,6 +7,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import background from "../../assets/images/Madeira.png";
 import { MealDetailsProps } from "../../@types/interface";
@@ -28,6 +29,8 @@ export const ReceitaEspecifica = () => {
   const [mealDetails, setMealDetails] = useState<MealDetailsProps | null>(null);
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [measures, setMeasures] = useState<string[]>([]);
+  const [showIngredients, setShowIngredients] = useState<boolean>(false);
+  const [showInstructions, setShowInstructions] = useState<boolean>(false);
 
   const route = useRoute();
   const { mealId } = route.params as MealByIdProps;
@@ -66,17 +69,31 @@ export const ReceitaEspecifica = () => {
           <Text style={styles.mealName}>{mealDetails?.strMeal}</Text>
           <Text style={styles.mealName}>Category: {mealDetails?.strCategory}</Text>
           <Text style={styles.mealName}>Region: {mealDetails?.strArea}</Text>
-          <Text style={styles.mealName}>Ingredients</Text>
-          <View style={styles.ingredientContainer}>
-            {ingredients.map((ingredient, index) => (
-              <Text
-                key={index}
-                style={styles.ingredient}
-              >{`${ingredient} - ${measures[index]}`}</Text>
-            ))}
-          </View>
-          <Text style={styles.mealName}>Instructions</Text>
-          <Text style={styles.instructions}>{mealDetails?.strInstructions}</Text>
+          <Pressable
+            style={styles.button}
+            onPress={() => setShowIngredients(!showIngredients)}
+          >
+            <Text>Ingredients</Text>
+          </Pressable>
+          {showIngredients && (
+            <View style={styles.ingredientContainer}>
+              {ingredients.map((ingredient, index) => (
+                <Text
+                  key={index}
+                  style={styles.ingredient}
+                >{`${ingredient} - ${measures[index]}`}</Text>
+              ))}
+            </View>
+          )}
+          <Pressable
+            style={styles.button}
+            onPress={() => setShowInstructions(!showInstructions)}
+          >
+            <Text>Instructions</Text>
+          </Pressable>
+          {showInstructions && (
+            <Text style={styles.instructions}>{mealDetails?.strInstructions}</Text>
+          )}
         </View>
       </ScrollView>
     </ImageBackground>
@@ -85,18 +102,26 @@ export const ReceitaEspecifica = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(237, 222, 199, 0.9)", // Cor de fundo com transparência
+    backgroundColor: "rgba(237, 222, 199, 0.9)",
     borderRadius: 5,
     width: "90%",
     padding: 6,
     marginVertical: 16,
     justifyContent: "center",
     alignItems: "center",
-    alignSelf: "center", // Centraliza o conteúdo horizontalmente
+    alignSelf: "center",
     flex: 1,
   },
   content: {
     padding: 16,
+  },
+  button: {
+    backgroundColor: "#f1c40f",
+    opacity: 0.8,
+    padding: 8,
+    borderRadius: 5,
+    marginVertical: 2,
+    width: "90%",
   },
   mealImage: {
     width: "80%",
@@ -125,5 +150,6 @@ const styles = StyleSheet.create({
   },
   instructions: {
     fontSize: 16,
+    paddingHorizontal: 16,
   },
 });

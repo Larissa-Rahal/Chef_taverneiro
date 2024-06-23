@@ -42,11 +42,11 @@ const LoginScreen = () => {
 
   const handleSubmit = async () => {
     navigation.navigate('Home');
-    // try {
-    //   const { data } = await GetAllUsers();
-    //   const user = data.find(
-    //     (u: UserDetailsProps) => u.email === email && u.senha === senha
-    //   );
+    try {
+      const { data } = await GetAllUsers();
+      const user = data.find(
+        (u: UserDetailsProps) => u.email === email && u.senha === senha
+      );
 
       if (user) {
         Alert.alert("Login realizado com sucesso!");
