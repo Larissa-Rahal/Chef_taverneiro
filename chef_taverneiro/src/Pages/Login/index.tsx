@@ -7,6 +7,7 @@ import {
   Image,
   ImageBackground,
   Alert,
+  Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleLogin";
@@ -25,7 +26,7 @@ export type LoginScreenNavigationProp = StackNavigationProp<
 
 export type BottomTabsNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
-  'BottomTabs'
+  "BottomTabs"
 >;
 
 type UserDetailsProps = {
@@ -41,16 +42,16 @@ const LoginScreen = () => {
   const navigation = useNavigation<BottomTabsNavigationProp>();
 
   const handleSubmit = async () => {
-    navigation.navigate('Home');
-    // try {
-    //   const { data } = await GetAllUsers();
-    //   const user = data.find(
-    //     (u: UserDetailsProps) => u.email === email && u.senha === senha
-    //   );
+    navigation.navigate("Home");
+    try {
+      const { data } = await GetAllUsers();
+      const user = data.find(
+        (u: UserDetailsProps) => u.email === email && u.senha === senha
+      );
 
       if (user) {
         Alert.alert("Login realizado com sucesso!");
-        navigation.navigate('BottomTabs');
+        navigation.navigate("BottomTabs");
       } else {
         Alert.alert("Usuário ou senha inválidos");
         handleZerar();
@@ -58,7 +59,6 @@ const LoginScreen = () => {
     } catch (error) {
       console.error("Erro ao realizar login", error);
     }
-
   };
 
   const handleZerar = () => {
@@ -67,10 +67,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <>
-      <View>
-        <ImageBackground source={background}  style={styles.background}/>
-      </View>
+    <ImageBackground source={background} style={styles.background}>
       <View style={styles.container}>
         <TextInput
           placeholder="Login"
@@ -87,15 +84,15 @@ const LoginScreen = () => {
           value={senha}
           onChangeText={(e) => setSenha(e)}
         />
-        <View>
+        <Pressable>
           <Text style={styles.signupText}>Não tem login?</Text>
           <Text>Cadastre-se</Text>
-        </View>
+        </Pressable>
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Image source={acessar} />
         </TouchableOpacity>
       </View>
-    </>
+    </ImageBackground>
   );
 };
 
