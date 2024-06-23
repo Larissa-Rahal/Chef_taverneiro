@@ -51,9 +51,13 @@ export const Home = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <><View>
       <ImageBackground source={background} style={styles.background} />
     </View>
+=======
+      <ImageBackground source={background} style={styles.background}>
+>>>>>>> b6e36d1bb4b33c01f9817cba8797524da227e69c
       <Image style={styles.tarjacheftaberneiro} source={tarjacheftaberneiro} />
       <TextInput
         style={styles.textInput}

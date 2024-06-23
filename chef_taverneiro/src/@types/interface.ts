@@ -6,9 +6,11 @@ export interface MealByCategoryProps {
 export interface MealDetailsProps {
     idMeal: string;
     strMeal: string;
+    strCategory: string;
     strArea: string;
     strMealThumb: string;
     strTags: string;
+    strInstructions: string;
     strIngredient1: string;
     strIngredient2: string;
     strIngredient3: string;

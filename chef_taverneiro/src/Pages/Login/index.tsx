@@ -20,12 +20,12 @@ import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 
 export type LoginScreenNavigationProp = StackNavigationProp<
   StackRoutesParamList,
-  "LoginScreen"
+  "ReceitaEspecifica"
 >;
 
-export type HomeScreenNavigationProp = BottomTabNavigationProp<
+export type BottomTabsNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
-  'Home'
+  'BottomTabs'
 >;
 
 type UserDetailsProps = {
@@ -38,18 +38,19 @@ type UserDetailsProps = {
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+  const navigation = useNavigation<BottomTabsNavigationProp>();
 
   const handleSubmit = async () => {
-    try {
-      const { data } = await GetAllUsers();
-      const user = data.find(
-        (u: UserDetailsProps) => u.email === email && u.senha === senha
-      );
+    navigation.navigate('Home');
+    // try {
+    //   const { data } = await GetAllUsers();
+    //   const user = data.find(
+    //     (u: UserDetailsProps) => u.email === email && u.senha === senha
+    //   );
 
       if (user) {
         Alert.alert("Login realizado com sucesso!");
-        navigation.navigate('Home');
+        navigation.navigate('BottomTabs');
       } else {
         Alert.alert("Usuário ou senha inválidos");
         handleZerar();
@@ -57,6 +58,7 @@ const LoginScreen = () => {
     } catch (error) {
       console.error("Erro ao realizar login", error);
     }
+
   };
 
   const handleZerar = () => {
@@ -67,7 +69,7 @@ const LoginScreen = () => {
   return (
     <>
       <View>
-        <ImageBackground style={styles.background} source={background} />
+        <ImageBackground source={background}  style={styles.background}/>
       </View>
       <View style={styles.container}>
         <TextInput
