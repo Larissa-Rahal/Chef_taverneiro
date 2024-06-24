@@ -31,6 +31,9 @@ export const Favorites = () => {
   return (
     <>
       <ImageBackground source={background} style={styles.favBackground}>
+        <View style={styles.titleBar}>
+          <Text style={styles.title}>Favorites</Text>
+        </View>
         {receitas.length > 0 ? (
           <ScrollView>
             {receitas.map((item) => (
@@ -39,7 +42,7 @@ export const Favorites = () => {
           </ScrollView>
         ) : (
           <View style={styles.noFav}>
-            <Text style={styles.noFavText}>Você ainda não tem favoritos</Text>
+            <Text style={styles.noFavText}>You don't have any favorites</Text>
           </View>
         )}
       </ImageBackground>
