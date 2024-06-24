@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
       },
 
     circulo: {
-        width: 200,
-        height: 200,
+        width: 150,
+        height: 150,
         alignItems: 'center',
         justifyContent:'center',
         },
