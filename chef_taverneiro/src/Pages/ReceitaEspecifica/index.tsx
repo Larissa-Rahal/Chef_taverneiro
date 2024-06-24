@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
-import { getMealDetailsById } from '../../services/mealApi';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { RootTabParamList } from '../../Routes/BottomTabRoutes';
-import { styles } from './stylePagEspecifica'
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Pressable,
+  ToastAndroid,
+} from "react-native";
+import { getMealDetailsById } from "../../services/mealApi";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { RootTabParamList } from "../../Routes/BottomTabRoutes";
+import { styles } from "./stylePagEspecifica";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { MealByCategoryProps, MealDetailsProps } from "../../@types/interface";
-import { Link, useNavigation, useRoute } from "@react-navigation/native";
-import background from '../../assets/images/Madeira.png';
+import { useNavigation, useRoute } from "@react-navigation/native";
+import background from "../../assets/images/Madeira.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+// import { getFavorite } from "../../services/favorites";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -87,6 +96,11 @@ export const ReceitaEspecifica = () => {
       const newFavorites = favorites.filter((favorite) => favorite.idMeal !== mealId);
       await AsyncStorage.setItem("favorites", JSON.stringify(newFavorites));
       setIsFavorite(false);
+      ToastAndroid.showWithGravity(
+        "Removido dos favoritos",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
     } else {
       const newFavorite = {
         idMeal: mealId,
@@ -96,6 +110,11 @@ export const ReceitaEspecifica = () => {
       const newFavorites = [...favorites, newFavorite];
       await AsyncStorage.setItem("favorites", JSON.stringify(newFavorites));
       setIsFavorite(true);
+      ToastAndroid.showWithGravity(
+        "Adicionado aos favoritos",
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
     }
   };
 
@@ -103,7 +122,7 @@ export const ReceitaEspecifica = () => {
     <ImageBackground style={styles.background} source={background}>
       <ScrollView>
         <View style={styles.PgEspContainer}>
-          <Pressable style={styles.back} onPress={() => navigation.goBack()}> 
+          <Pressable style={styles.back} onPress={() => navigation.goBack()}>
             <Text>Voltar</Text>
           </Pressable>
           <Image source={{ uri: mealDetails?.strMealThumb }} style={styles.mealImage} />
