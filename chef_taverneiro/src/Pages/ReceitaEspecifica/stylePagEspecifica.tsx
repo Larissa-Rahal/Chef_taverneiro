@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  background: {
+    height: "100%",
+  },
     PgEspContainer: {
       backgroundColor: "rgba(237, 222, 199, 0.9)",
       borderRadius: 5,

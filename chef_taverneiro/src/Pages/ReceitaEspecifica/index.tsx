@@ -100,7 +100,7 @@ export const ReceitaEspecifica = () => {
   };
 
   return (
-    <ImageBackground source={background}>
+    <ImageBackground style={styles.background} source={background}>
       <ScrollView>
         <View style={styles.PgEspContainer}>
           <Pressable style={styles.back} onPress={() => navigation.goBack()}> 
