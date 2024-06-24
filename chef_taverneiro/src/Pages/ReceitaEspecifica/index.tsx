@@ -19,7 +19,7 @@ import { MealByCategoryProps, MealDetailsProps } from "../../@types/interface";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import background from "../../assets/images/Madeira.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// import { getFavorite } from "../../services/favorites";
+import { getFavorite } from "../../services/favorites";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -74,15 +74,6 @@ export const ReceitaEspecifica = () => {
 
     fetchMealDetails();
   }, [mealId]);
-
-  const getFavorite = async () => {
-    try {
-      const jsonValue = (await AsyncStorage.getItem("favorites")) || "[]";
-      return JSON.parse(jsonValue);
-    } catch (e) {
-      throw new Error("Erro ao buscar favoritos");
-    }
-  };
 
   const checkFavorite = async () => {
     const favorites: MealByCategoryProps[] = await getFavorite();

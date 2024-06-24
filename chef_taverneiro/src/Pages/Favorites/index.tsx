@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
-import { ImageBackground, ScrollView } from "react-native";
+import { ImageBackground, ScrollView, View, Text } from "react-native";
 import { styles } from "./FavStyle";
 import background from "../../assets/images/Madeira.png";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MealByCategoryProps } from "../../@types/interface";
 import { MealCategory } from "../../components/Cards/MealCategory";
+import { getFavorite } from "../../services/favorites";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -15,15 +15,6 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 
 export const Favorites = () => {
   const [receitas, setReceitas] = useState<MealByCategoryProps[]>([]);
-
-  const getFavorite = async () => {
-    try {
-      const jsonValue = (await AsyncStorage.getItem("favorites")) || "[]";
-      return JSON.parse(jsonValue);
-    } catch (e) {
-      throw new Error("Erro ao buscar favoritos");
-    }
-  };
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -40,11 +31,17 @@ export const Favorites = () => {
   return (
     <>
       <ImageBackground source={background} style={styles.favBackground}>
-        <ScrollView>
-          {receitas.map((item) => (
-            <MealCategory key={item.idMeal} item={item} />
-          ))}
-        </ScrollView>
+        {receitas.length > 0 ? (
+          <ScrollView>
+            {receitas.map((item) => (
+              <MealCategory key={item.idMeal} item={item} />
+            ))}
+          </ScrollView>
+        ) : (
+          <View style={styles.noFav}>
+            <Text style={styles.noFavText}>Você ainda não tem favoritos</Text>
+          </View>
+        )}
       </ImageBackground>
     </>
   );
