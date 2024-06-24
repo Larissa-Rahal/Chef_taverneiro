@@ -42,6 +42,13 @@ export const ReceitaEspecifica = () => {
   const route = useRoute();
   const { mealId } = route.params as MealByIdProps;
 
+  // useEffect(() => {
+  //   const clearStorage = async () => {
+  //     await AsyncStorage.removeItem("favorites");
+  //   };
+  //   clearStorage();
+  // }, []);
+
   useEffect(() => {
     async function fetchMealDetails() {
       try {
