@@ -11,25 +11,21 @@ export const styles = StyleSheet.create({
   },
 
     tarjacheftaberneiro: {
-        verticalAlign:'top',
-        width: '100%',
-        height: 50,
-        marginLeft:0,
-        marginTop:0,
-        marginBottom:0,
-        alignItems:'center',
+      width: 'auto',
+      alignItems:'center',
     },
 
     textInput: {
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 5,
+        padding: 5,
         borderRadius: 8,
-        width: 300, 
+        width: '90%', 
         height: 50,
         backgroundColor: 'rgba(233, 233, 233, 0.8)',
         paddingHorizontal: 10,
         fontSize: 16,
-        alignSelf: 'center'
+        alignSelf: 'center', 
+        bottom: 25
     }
 
 }

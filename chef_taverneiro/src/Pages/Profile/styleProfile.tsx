@@ -26,8 +26,8 @@ export const styles = StyleSheet.create({
 
       profileIcon: {
         position: 'absolute',
-        left: '5.5%',
-        top: '16%',
+        left: '10%',
+        top: '20%',
         opacity:0.7
         },
 
