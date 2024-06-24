@@ -1,21 +1,13 @@
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
-import {
-  ImageBackground,
-  Text,
-  View,
-  Image,
-  TextInput,
-  ScrollView,
-} from "react-native";
-import { useEffect, useState } from "react";
 import { styles } from "./styleProfile";
 import background from "../../assets/images/Madeira.png";
+import { ImageBackground, Text, View, Image, TextInput } from "react-native";
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 import { GetAllUsers } from "../../services/jsonServerApi";
-import { UserDetailsProps } from "../../@types/interface";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -23,42 +15,57 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 >;
 
 export const Profile = () => {
-  return (
-    <>
-      <View>
-        <ImageBackground source={background} style={styles.background} />
-      </View>
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await GetAllUsers();
+        const userData = response.data;
+        setName(userData.name);
+        setEmail(userData.email);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <ImageBackground source={background} style={styles.background}>
       <View style={styles.container}>
+
         <View style={styles.containerCirculo}>
           <Image style={styles.circulo} source={circulo} />
         </View>
+        
         <FontAwesomeIcon
           style={styles.profileIcon}
           icon={faAddressCard}
           size={100}
         />
 
-        <View style={styles.containerNome}>
-          <Text style={styles.flexTextNome}>Nome:</Text>
-          <TextInput
-            style={styles.inputNome}
-            value={"Aqui estará o nome."}
-            editable={false}
-            placeholder="Aqui estará o nome."
-          />
-        </View>
+        <View>
+          <View style={styles.containerImput}>
+            <Text style={styles.flexTextNome}>Nome:</Text>
+            <TextInput
+              style={styles.inputNome}
+              value={name} // Update the value with the fetched data
+              editable={false}
+              placeholder="Aqui estará o nome."
+            />
 
-        <View style={styles.containerEmail}>
-          <Text style={styles.flexTextEmail}>Email:</Text>
-          <TextInput
-            style={styles.inputEmail}
-            value={"Aqui estará o Email."}
-            editable={false}
-            placeholder="Aqui estará o Email."
-          />
+            <Text style={styles.flexTextEmail}>Email:</Text>
+            <TextInput
+              style={styles.inputEmail}
+              value={email} // Update the value with the fetched data
+              editable={false}
+              placeholder="Aqui estará o Email."
+            />
+          </View>
         </View>
       </View>
-    </>
+    </ImageBackground>
   );
 };

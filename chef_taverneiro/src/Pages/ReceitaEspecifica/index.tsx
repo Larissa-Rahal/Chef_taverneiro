@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Pressable,
-} from "react-native";
-import background from "../../assets/images/Madeira.png";
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
+import { getMealDetailsById } from '../../services/mealApi';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { RootTabParamList } from '../../Routes/BottomTabRoutes';
+import { styles } from './stylePagEspecifica'
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { MealByCategoryProps, MealDetailsProps } from "../../@types/interface";
-import { getMealDetailsById } from "../../services/mealApi";
-import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { RootTabParamList } from "../../Routes/BottomTabRoutes";
-import { useRoute } from "@react-navigation/native";
+import { Link, useNavigation, useRoute } from "@react-navigation/native";
+import background from '../../assets/images/Madeira.png';
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -157,66 +149,3 @@ export const ReceitaEspecifica = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "rgba(237, 222, 199, 0.9)",
-    borderRadius: 5,
-    width: "90%",
-    padding: 6,
-    marginVertical: 16,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    flex: 1,
-  },
-  content: {
-    padding: 16,
-  },
-  back: {
-    alignSelf: "flex-start",
-    backgroundColor: "#fff",
-    opacity: 0.8,
-    padding: 5,
-    borderRadius: 5,
-    marginVertical: 2,
-    width: "20%",
-  },
-  button: {
-    backgroundColor: "#f1c40f",
-    opacity: 0.8,
-    padding: 8,
-    borderRadius: 5,
-    marginVertical: 2,
-    width: "90%",
-  },
-  mealImage: {
-    width: "80%",
-    height: 200,
-    resizeMode: "cover",
-    marginBottom: 16,
-    alignSelf: "center",
-  },
-  mealName: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  mealArea: {
-    fontSize: 16,
-    color: "gray",
-  },
-  ingredientContainer: {
-    flexWrap: "wrap",
-    gap: 8,
-    marginBottom: 16,
-  },
-  ingredient: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  instructions: {
-    fontSize: 16,
-    paddingHorizontal: 16,
-  },
-});

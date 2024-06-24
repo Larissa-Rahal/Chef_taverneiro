@@ -9,7 +9,7 @@ import {
   Alert,
   Pressable,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Link, useNavigation } from "@react-navigation/native";
 import { styles } from "./styleLogin";
 import background from "../../assets/images/Pagina de Login.png";
 import acessar from "../../assets/images/balao_acessar.png";
@@ -70,7 +70,7 @@ const LoginScreen = () => {
     <ImageBackground source={background} style={styles.background}>
       <View style={styles.container}>
         <TextInput
-          placeholder="Login"
+          placeholder="E-mail"
           placeholderTextColor="#fff"
           style={styles.input}
           value={email}

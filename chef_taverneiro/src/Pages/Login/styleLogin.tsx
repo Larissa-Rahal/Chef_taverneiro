@@ -27,6 +27,12 @@ export const styles = StyleSheet.create({
     button: {
       backgroundColor: 'transparent',
     },
+    cadastroButton:{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'row',
+    },
     orcImage: {
       width: 200,
       height: 200,

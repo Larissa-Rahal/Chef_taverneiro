@@ -5,6 +5,12 @@
       "nome": "Antonio",
       "email": "antonio@email.com",
       "senha": "123456"
+    },
+    {
+      "id": "2",
+      "nome": "Larissa",
+      "email": "Lalarahalcoelho@gmail.com",
+      "senha": "123456"
     }
 ]
 }
