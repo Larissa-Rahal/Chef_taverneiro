@@ -102,7 +102,7 @@ export const ReceitaEspecifica = () => {
   return (
     <ImageBackground source={background}>
       <ScrollView>
-        <View style={styles.container}>
+        <View style={styles.PgEspContainer}>
           <Pressable style={styles.back} onPress={() => navigation.goBack()}> 
             <Text>Voltar</Text>
           </Pressable>
@@ -120,7 +120,7 @@ export const ReceitaEspecifica = () => {
           <Text style={styles.mealName}>Category: {mealDetails?.strCategory}</Text>
           <Text style={styles.mealName}>Region: {mealDetails?.strArea}</Text>
           <Pressable
-            style={styles.button}
+            style={styles.PgEspbutton}
             onPress={() => setShowIngredients(!showIngredients)}
           >
             <Text>Ingredients</Text>
@@ -136,7 +136,7 @@ export const ReceitaEspecifica = () => {
             </View>
           )}
           <Pressable
-            style={styles.button}
+            style={styles.PgEspbutton}
             onPress={() => setShowInstructions(!showInstructions)}
           >
             <Text>Instructions</Text>

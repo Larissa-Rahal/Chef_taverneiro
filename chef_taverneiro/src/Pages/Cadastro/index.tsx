@@ -32,7 +32,7 @@ const CadastroScreen = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await api.post("/users", {
+      const response = await api.post('https://closing-definitely-dinosaur.ngrok-free.app/users', {
         nome: name,
         email: email,
         senha: password,
@@ -45,10 +45,8 @@ const CadastroScreen = () => {
       Alert.alert("Usuário cadastrado com sucesso!");
       if (response.status === 201) {
         navigation.navigate("LoginScreen");
-        console.log(response)
       }
     } catch (error) {
-      console.error("Erro ao cadastrar usuário:", error);
       Alert.alert("Erro ao cadastrar usuário:");
     }
   };
@@ -56,21 +54,21 @@ const CadastroScreen = () => {
   return (
     <>
     <View>
-      <ImageBackground style={styles.loginBackground} source={background}/>
+      <ImageBackground style={styles.cadastroBackground} source={background}/>
     </View>
-      <View style={styles.loginContainer}>
-        <View style={styles.loginInputContainer}>
+      <View style={styles.cadastroContainer}>
+        <View style={styles.cadastroInputContainer}>
           <TextInput
             placeholder="Nome"
             placeholderTextColor="#fff"
-            style={styles.loginInput}
+            style={styles.cadastroInput}
             value={name}
             onChangeText={setName}
             />
           <TextInput
             placeholder="E-mail"
             placeholderTextColor="#fff"
-            style={styles.loginInput}
+            style={styles.cadastroInput}
             value={email}
             onChangeText={setEmail}
             />
@@ -78,18 +76,18 @@ const CadastroScreen = () => {
             placeholder="Senha"
             placeholderTextColor="#fff"
             secureTextEntry
-            style={styles.loginInput}
+            style={styles.cadastroInput}
             value={password}
             onChangeText={setPassword}
             />
           <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-            <Text style={styles.loginCadastroText}>Já tenho cadastro</Text>
+            <Text style={styles.cadastroCadastroText}>Já tenho cadastro</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={styles.loginImageContainer}>
-          <TouchableOpacity style={styles.loginButton} onPress={handleSubmit}>
-            <Image source={cadastro} style={styles.loginButtonImage} />
+        <View style={styles.cadastroImageContainer}>
+          <TouchableOpacity style={styles.cadastroButton} onPress={handleSubmit}>
+            <Image source={cadastro} style={styles.cadastroButtonImage} />
           </TouchableOpacity>
         </View>
       </View>

@@ -6,7 +6,7 @@ const jsonServerApi = axios.create({
 })
 
 export async function PostUser(user: UserProps) {
-    const url = '/users/'
+    const url = '/users'
     
     try{
         const response = await jsonServerApi.post(url);

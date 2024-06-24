@@ -15,8 +15,8 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 >;
 
 export const Profile = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,37 +33,33 @@ export const Profile = () => {
   }, []);
 
   return (
-    <ImageBackground source={background} style={styles.background}>
-      <View style={styles.container}>
-
+    <ImageBackground source={background} style={styles.profileBackground}>
+      <View style={styles.profileContainer}>
         <View style={styles.containerCirculo}>
           <Image style={styles.circulo} source={circulo} />
+          <FontAwesomeIcon
+            style={styles.profileIcon}
+            icon={faAddressCard}
+            size={100}
+          />
         </View>
-        
-        <FontAwesomeIcon
-          style={styles.profileIcon}
-          icon={faAddressCard}
-          size={100}
-        />
 
-        <View>
-          <View style={styles.containerImput}>
-            <Text style={styles.flexTextNome}>Nome:</Text>
-            <TextInput
-              style={styles.inputNome}
-              value={name} // Update the value with the fetched data
-              editable={false}
-              placeholder="Aqui estará o nome."
-            />
+        <View style={styles.containerImput}>
+          <Text style={styles.flexTextNome}>Nome:</Text>
+          <TextInput
+            style={styles.inputNome}
+            value={name} // Update the value with the fetched data
+            editable={false}
+            placeholder="Aqui estará o nome."
+          />
 
-            <Text style={styles.flexTextEmail}>Email:</Text>
-            <TextInput
-              style={styles.inputEmail}
-              value={email} // Update the value with the fetched data
-              editable={false}
-              placeholder="Aqui estará o Email."
-            />
-          </View>
+          <Text style={styles.flexTextEmail}>Email:</Text>
+          <TextInput
+            style={styles.inputEmail}
+            value={email} // Update the value with the fetched data
+            editable={false}
+            placeholder="Aqui estará o Email."
+          />
         </View>
       </View>
     </ImageBackground>

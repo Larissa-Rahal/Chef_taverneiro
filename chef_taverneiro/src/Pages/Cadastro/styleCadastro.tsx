@@ -1,23 +1,23 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  loginBackground: {
+  cadastroBackground: {
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
     minHeight:'100%',
     minWidth: '100%'
   },
-  loginContainer: {
+  cadastroContainer: {
     flex: 1,
     alignItems: 'center',
   },
-  loginInputContainer: {
+  cadastroInputContainer: {
     marginTop: '35%',
     width: '100%',
     alignItems: 'center',
   },
-  loginInput: {
+  cadastroInput: {
     width: '90%',
     backgroundColor: '#6B3F24',
     padding: 20,
@@ -25,18 +25,18 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     color: '#fff',
   },
-  loginCadastroText: {
+  cadastroCadastroText: {
     color: '#fff',
     marginBottom: 10,
     fontSize: 16,
   },
-  loginImageContainer: {
+  cadastroImageContainer: {
     width: '100%',
     alignItems: 'center',
   },
-  loginButton: {
+  cadastroButton: {
     right: 50,
     top:0,
   },
-  loginButtonImage: {},
+  cadastroButtonImage: {},
 });

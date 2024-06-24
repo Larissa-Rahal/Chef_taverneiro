@@ -29,6 +29,11 @@ export type BottomTabsNavigationProp = BottomTabNavigationProp<
   "BottomTabs"
 >;
 
+export type CadastroScreenNavigationProp = StackNavigationProp<
+  StackRoutesParamList,
+  "CadastroScreen"
+>;
+
 type UserDetailsProps = {
   id: string;
   nome: string;
@@ -39,10 +44,9 @@ type UserDetailsProps = {
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const navigation = useNavigation<BottomTabsNavigationProp>();
+  const navigation = useNavigation<CadastroScreenNavigationProp>();
 
   const handleSubmit = async () => {
-    navigation.navigate("Home");
     try {
       const { data } = await GetAllUsers();
       const user = data.find(
@@ -67,12 +71,12 @@ const LoginScreen = () => {
   };
 
   return (
-    <ImageBackground source={background} style={styles.background}>
-      <View style={styles.container}>
+    <ImageBackground source={background} style={styles.loginBackground}>
+      <View style={styles.loginContainer}>
         <TextInput
           placeholder="E-mail"
           placeholderTextColor="#fff"
-          style={styles.input}
+          style={styles.loginInput}
           value={email}
           onChangeText={(e) => setEmail(e)}
         />
@@ -80,18 +84,17 @@ const LoginScreen = () => {
           placeholder="Senha"
           placeholderTextColor="#fff"
           secureTextEntry
-          style={styles.input}
+          style={styles.loginInput}
           value={senha}
           onChangeText={(e) => setSenha(e)}
         />
-        <Pressable>
-          <Text style={styles.signupText}>Não tem login?</Text>
-          <Text>Cadastre-se</Text>
-        </Pressable>
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Image source={acessar} />
+        <TouchableOpacity onPress={() => navigation.navigate("CadastroScreen")}>
+          <Text style={styles.loginCadastroButton}>Cadastre-se</Text>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity style={styles.loginButton} onPress={handleSubmit}>
+        <Image source={acessar} />
+      </TouchableOpacity>
     </ImageBackground>
   );
 };
