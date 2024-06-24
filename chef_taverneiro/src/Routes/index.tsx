@@ -5,7 +5,7 @@ import { Profile } from "../Pages/Profile";
 export const Routes = () => {
   return (
     <NavigationContainer>
-      <Profile />
+      <AppNavigator />
     </NavigationContainer>
   );
 };

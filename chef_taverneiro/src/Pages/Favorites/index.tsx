@@ -1,7 +1,7 @@
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
 import { ImageBackground, Text } from "react-native";
-import { styles } from "../Login/styleLogin";
+import { styles } from "./FavStyle";
 import background from "../../assets/images/Madeira.png";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
@@ -12,7 +12,7 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 export const Favorites = () => {
   return (
     <>
-      <ImageBackground source={background} style={styles.background}>
+      <ImageBackground source={background} style={styles.favBackground}>
         <Text style={{ textAlign: "center", fontSize: 80 }}>Favorites</Text>
       </ImageBackground>
     </>

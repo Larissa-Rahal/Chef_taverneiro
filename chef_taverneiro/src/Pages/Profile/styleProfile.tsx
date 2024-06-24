@@ -2,52 +2,47 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
-    background: {
+    profileBackground: {
         flex: 1,
         resizeMode: 'cover',
         justifyContent: 'center'
       },
     
-    container: {
+      profileContainer: {
         flex: 1,
-        justifyContent: 'flex-start',
+        width: '100%',
+        position: 'absolute',
+        justifyContent:'center',
         alignItems: 'center',
-        padding: 20
+        zIndex: 0
       },
 
     circulo: {
         width: 150,
         height: 150,
-        marginLeft:0,
-        marginTop:0,
-        marginBottom:0,
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent:'center',
         },
 
       profileIcon: {
-        marginTop:75,
         position: 'absolute',
+        left: '5.5%',
+        top: '16%',
         opacity:0.7
         },
 
         containerCirculo: {
           flex: 1,
-          flexDirection: 'row',
-          position: 'absolute',
-          marginLeft:65,
-          marginRight:0,
-          marginTop:50,
-          marginBottom:390,
-          padding: 0,
-          paddingTop:0,
-          paddingBottom:10
+          flexDirection: 'column',
         },
 
         containerImput: {
           flex: 1,
+          width:'100%',
           justifyContent: 'center',
           alignItems: 'center',
           padding: 20,
+          // backgroundColor: 'red'
         },
 
         inputNome: {
@@ -59,33 +54,27 @@ export const styles = StyleSheet.create({
           color: '#fff',
         },    
 
-        // containerEmail: {
-        //   flex: 1,
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        //   marginBottom: '0%',
-        //   backgroundColor: 'red'
-        // },
+        containerEmail: {
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: '0%',
+          backgroundColor: 'red'
+        },
 
-        // flexTextNome: {
-        //   position: 'absolute',
-        //   flexDirection: 'row',
-        //   fontSize: 18,
-        //   fontWeight: 'bold',
-        //   color: 'white',
-        //   paddingBottom:50,
-        //   paddingRight:210
-        // },
+        flexTextNome: {
+          flexDirection: 'row',
+          fontSize: 18,
+          fontWeight: 'bold',
+          color: 'white',
+        },
 
-        // flexTextEmail: {
-        //     // position: 'absolute',
-        //     flexDirection: 'row',
-        //     fontSize: 18,
-        //     fontWeight: 'bold',
-        //     color: 'white',
-        //     // paddingBottom:120,
-        //     // paddingRight:210 
-        // },
+        flexTextEmail: {
+            flexDirection: 'row',
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: 'white',
+        },
 
         inputEmail: {
           width: '90%',

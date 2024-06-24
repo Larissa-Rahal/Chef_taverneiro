@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-      container: {
+    PgEspContainer: {
       backgroundColor: "rgba(237, 222, 199, 0.9)",
       borderRadius: 5,
       width: "90%",
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
       alignSelf: "center",
       flex: 1,
     },
-    content: {
+    PgEspContent: {
       padding: 16,
     },
     back: {
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
       marginVertical: 2,
       width: "20%",
     },
-    button: {
+    PgEspbutton: {
       backgroundColor: "#f1c40f",
       opacity: 0.8,
       padding: 8,

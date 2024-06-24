@@ -1,18 +1,18 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    background: {
+    loginBackground: {
       flex: 1,
       resizeMode: 'cover',
       justifyContent: 'center',
     },
-    container: {
+    loginContainer: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       padding: 20,
     },
-    input: {
+    loginInput: {
       width: '80%',
       backgroundColor: '#6B3F24',
       padding: 10,
@@ -20,25 +20,17 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       color: '#fff',
     },
-    signupText: {
+    loginSignupText: {
       color: '#fff',
       marginBottom: 20,
     },
-    button: {
+    loginButton: {
       backgroundColor: 'transparent',
     },
-    cadastroButton:{
+    loginCadastroButton:{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'row',
-    },
-    orcImage: {
-      width: 200,
-      height: 200,
-      resizeMode: 'contain',
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
     },
   });
