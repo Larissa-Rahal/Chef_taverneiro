@@ -7,6 +7,7 @@ import {
   ScrollView,
   Pressable,
   ToastAndroid,
+  Platform,
 } from "react-native";
 import { getMealDetailsById } from "../../services/mealApi";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
@@ -94,11 +95,12 @@ export const ReceitaEspecifica = () => {
       const newFavorites = favorites.filter((favorite) => favorite.idMeal !== mealId);
       await AsyncStorage.setItem("favorites", JSON.stringify(newFavorites));
       setIsFavorite(false);
-      ToastAndroid.showWithGravity(
-        "Removido dos favoritos",
-        ToastAndroid.SHORT,
-        ToastAndroid.CENTER
-      );
+      if (Platform.OS === "android")
+        ToastAndroid.showWithGravity(
+          "Removido dos favoritos",
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
     } else {
       const newFavorite = {
         idMeal: mealId,
@@ -108,11 +110,12 @@ export const ReceitaEspecifica = () => {
       const newFavorites = [...favorites, newFavorite];
       await AsyncStorage.setItem("favorites", JSON.stringify(newFavorites));
       setIsFavorite(true);
-      ToastAndroid.showWithGravity(
-        "Adicionado aos favoritos",
-        ToastAndroid.SHORT,
-        ToastAndroid.CENTER
-      );
+      if (Platform.OS === "android")
+        ToastAndroid.showWithGravity(
+          "Adicionado aos favoritos",
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
     }
   };
 
