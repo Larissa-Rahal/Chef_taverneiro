@@ -12,7 +12,6 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styleCadastro";
 import background from "../../assets/images/Pagina de Cadastro.png";
 import cadastro from "../../assets/images/balao_cadastrar.png";
-import api from "../../services/api/api";
 import { PostUser } from "../../services/jsonServerApi/index";;
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackRoutesParamList } from "../../Routes/StackRoutes";
@@ -21,7 +20,6 @@ export type CadastroScreenNavigationProp = StackNavigationProp<
 StackRoutesParamList,
   'CadastroScreen'
 >;
-
 
 const CadastroScreen = () => {
   const navigation = useNavigation<CadastroScreenNavigationProp>();
@@ -32,12 +30,7 @@ const CadastroScreen = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await api.post('https://closing-definitely-dinosaur.ngrok-free.app/users', {
-        nome: name,
-        email: email,
-        senha: password,
-      });
-      console.log("Usuário cadastrado com sucesso:", response.data);
+      const response = await PostUser({ nome: name, email, senha: password });
       
       setName("");
       setEmail("");

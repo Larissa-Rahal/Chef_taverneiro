@@ -9,7 +9,7 @@ export async function PostUser(user: UserProps) {
     const url = '/users'
     
     try{
-        const response = await jsonServerApi.post(url);
+        const response = await jsonServerApi.post(url, user);
         return response;
     } catch(erro) {
         console.error('Erro de requisição:', erro)
