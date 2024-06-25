@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -18,6 +18,7 @@ import { StackRoutesParamList } from "../../Routes/StackRoutes";
 import { GetAllUsers } from "../../services/jsonServerApi";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import UserContext from "../../context/userContext";
 
 export type LoginScreenNavigationProp = StackNavigationProp<
   StackRoutesParamList,
@@ -45,6 +46,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigation = useNavigation<CadastroScreenNavigationProp>();
+  const { setUsuario } = useContext(UserContext);
 
   const handleSubmit = async () => {
     try {
@@ -56,6 +58,7 @@ const LoginScreen = () => {
       if (user) {
         Alert.alert("Login realizado com sucesso!");
         navigation.navigate("BottomTabs");
+        setUsuario(user);
       } else {
         Alert.alert("Usuário ou senha inválidos");
         handleZerar();
