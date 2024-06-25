@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  background: {
+    height: "100%",
+  },
     PgEspContainer: {
       backgroundColor: "rgba(237, 222, 199, 0.9)",
       borderRadius: 5,
@@ -54,7 +57,7 @@ export const styles = StyleSheet.create({
       marginBottom: 16,
     },
     ingredient: {
-      fontSize: 20,
+      fontSize: 16,
       fontWeight: "bold",
     },
     instructions: {

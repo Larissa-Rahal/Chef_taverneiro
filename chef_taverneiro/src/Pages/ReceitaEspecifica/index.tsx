@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
-import { getMealDetailsById } from '../../services/mealApi';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { RootTabParamList } from '../../Routes/BottomTabRoutes';
-import { styles } from './stylePagEspecifica'
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Pressable,
+  ToastAndroid,
+  Platform,
+} from "react-native";
+import { getMealDetailsById } from "../../services/mealApi";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { RootTabParamList } from "../../Routes/BottomTabRoutes";
+import { styles } from "./stylePagEspecifica";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { MealByCategoryProps, MealDetailsProps } from "../../@types/interface";
-import { Link, useNavigation, useRoute } from "@react-navigation/native";
-import background from '../../assets/images/Madeira.png';
+import { useNavigation, useRoute } from "@react-navigation/native";
+import background from "../../assets/images/Madeira.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getFavorite } from "../../services/favorites";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -32,6 +42,13 @@ export const ReceitaEspecifica = () => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const route = useRoute();
   const { mealId } = route.params as MealByIdProps;
+
+  // useEffect(() => {
+  //   const clearStorage = async () => {
+  //     await AsyncStorage.removeItem("favorites");
+  //   };
+  //   clearStorage();
+  // }, []);
 
   useEffect(() => {
     async function fetchMealDetails() {
@@ -59,15 +76,6 @@ export const ReceitaEspecifica = () => {
     fetchMealDetails();
   }, [mealId]);
 
-  const getFavorite = async () => {
-    try {
-      const jsonValue = (await AsyncStorage.getItem("favorites")) || "[]";
-      return JSON.parse(jsonValue);
-    } catch (e) {
-      throw new Error("Erro ao buscar favoritos");
-    }
-  };
-
   const checkFavorite = async () => {
     const favorites: MealByCategoryProps[] = await getFavorite();
     if (favorites) {
@@ -87,6 +95,12 @@ export const ReceitaEspecifica = () => {
       const newFavorites = favorites.filter((favorite) => favorite.idMeal !== mealId);
       await AsyncStorage.setItem("favorites", JSON.stringify(newFavorites));
       setIsFavorite(false);
+      if (Platform.OS === "android")
+        ToastAndroid.showWithGravity(
+          "Removido dos favoritos",
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
     } else {
       const newFavorite = {
         idMeal: mealId,
@@ -96,14 +110,20 @@ export const ReceitaEspecifica = () => {
       const newFavorites = [...favorites, newFavorite];
       await AsyncStorage.setItem("favorites", JSON.stringify(newFavorites));
       setIsFavorite(true);
+      if (Platform.OS === "android")
+        ToastAndroid.showWithGravity(
+          "Adicionado aos favoritos",
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
     }
   };
 
   return (
-    <ImageBackground source={background}>
+    <ImageBackground style={styles.background} source={background}>
       <ScrollView>
         <View style={styles.PgEspContainer}>
-          <Pressable style={styles.back} onPress={() => navigation.goBack()}> 
+          <Pressable style={styles.back} onPress={() => navigation.goBack()}>
             <Text>Voltar</Text>
           </Pressable>
           <Image source={{ uri: mealDetails?.strMealThumb }} style={styles.mealImage} />

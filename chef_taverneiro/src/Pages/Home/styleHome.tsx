@@ -1,13 +1,22 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-
   background: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    minHeight:'100%',
-    minWidth: '100%'
+    resizeMode: "cover",
+    justifyContent: "center",
+    minHeight: "100%",
+    minWidth: "100%",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
   },
 
     tarjacheftaberneiro: {
