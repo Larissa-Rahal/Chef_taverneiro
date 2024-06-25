@@ -8,7 +8,7 @@ import { MealByCategoryProps } from "../../@types/interface";
 import { MealCategory } from "../../components/Cards/MealCategory";
 import { getFavorite } from "../../services/favorites";
 
-export type ProfileScreenNavigationProp = BottomTabNavigationProp<
+export type FavoritesScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
   "Favorites"
 >;
@@ -32,7 +32,7 @@ export const Favorites = () => {
     <>
       <ImageBackground source={background} style={styles.favBackground}>
         <View style={styles.titleBar}>
-          <Text style={styles.title}>Favorites</Text>
+          <Text style={styles.title}>Favoritos</Text>
         </View>
         {receitas.length > 0 ? (
           <ScrollView>

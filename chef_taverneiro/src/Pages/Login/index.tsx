@@ -20,11 +20,6 @@ import { RootTabParamList } from "../../Routes/BottomTabRoutes";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import UserContext from "../../context/userContext";
 
-export type LoginScreenNavigationProp = StackNavigationProp<
-  StackRoutesParamList,
-  "ReceitaEspecifica"
->;
-
 export type BottomTabsNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
   "BottomTabs"
