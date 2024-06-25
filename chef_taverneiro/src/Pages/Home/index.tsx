@@ -9,7 +9,7 @@ import { getAllMeals, getMealByName } from "../../services/mealApi";
 import { MealByCategoryProps } from "../../@types/interface";
 import { MealCategory } from "../../components/Cards/MealCategory";
 
-export type ProfileScreenNavigationProp = BottomTabNavigationProp<
+export type HomeScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
   "Home"
 >;

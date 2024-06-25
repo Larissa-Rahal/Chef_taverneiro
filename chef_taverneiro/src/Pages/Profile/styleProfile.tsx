@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
-
   profileContainer: {
     flex: 1,
     width: "100%",
