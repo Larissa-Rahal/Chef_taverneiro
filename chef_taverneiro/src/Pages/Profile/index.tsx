@@ -1,7 +1,7 @@
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
 import { styles } from "./styleProfile";
-import background from "../../assets/images/Madeira.png";
+import background from "../../assets/images/Perfil Background.png";
 import { ImageBackground, Text, View, Image } from "react-native";
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
