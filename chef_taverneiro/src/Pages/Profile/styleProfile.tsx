@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
 
       profileIcon: {
         position: 'absolute',
-        left: '5.5%',
+        left: '7%',
         top: '16%',
         opacity:0.7
         },
@@ -65,14 +65,14 @@ export const styles = StyleSheet.create({
         flexTextNome: {
           flexDirection: 'row',
           fontSize: 18,
-          fontWeight: 'bold',
+          fontWeight: 900,
           color: 'white',
         },
 
         flexTextEmail: {
             flexDirection: 'row',
             fontSize: 18,
-            fontWeight: 'bold',
+            fontWeight: 900,
             color: 'white',
         },
 

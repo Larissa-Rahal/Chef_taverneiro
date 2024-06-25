@@ -6,8 +6,9 @@ import { ImageBackground, Text, View, Image, TextInput } from "react-native";
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GetAllUsers } from "../../services/jsonServerApi";
+import UserContext from "../../context/userContext";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
   RootTabParamList,
@@ -17,6 +18,7 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 export const Profile = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const { usuario } = useContext(UserContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,21 +47,16 @@ export const Profile = () => {
         </View>
 
         <View style={styles.containerImput}>
+
+          <Text style={styles.flexTextNome}>Id:</Text>
+          <Text style={styles.inputNome}>{usuario.id}</Text>
+
           <Text style={styles.flexTextNome}>Nome:</Text>
-          <TextInput
-            style={styles.inputNome}
-            value={name} // Update the value with the fetched data
-            editable={false}
-            placeholder="Aqui estará o nome."
-          />
+          <Text style={styles.inputNome}>{usuario.nome}</Text>
 
           <Text style={styles.flexTextEmail}>Email:</Text>
-          <TextInput
-            style={styles.inputEmail}
-            value={email} // Update the value with the fetched data
-            editable={false}
-            placeholder="Aqui estará o Email."
-          />
+          <Text style={styles.inputNome}>{usuario.email}</Text>
+
         </View>
       </View>
     </ImageBackground>
