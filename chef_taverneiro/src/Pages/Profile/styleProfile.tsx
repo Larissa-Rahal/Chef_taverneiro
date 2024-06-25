@@ -2,89 +2,86 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
-    profileBackground: {
-        flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'center'
-      },
-    
-      profileContainer: {
-        flex: 1,
-        width: '100%',
-        position: 'absolute',
-        justifyContent:'center',
-        alignItems: 'center',
-        zIndex: 0
-      },
+  profileBackground: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center'
+  },
 
-    circulo: {
-        width: 150,
-        height: 150,
-        alignItems: 'center',
-        justifyContent:'center',
-        },
+  profileContainer: {
+    flex: 1,
+    width: '100%',
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 0
+  },
 
-      profileIcon: {
-        position: 'absolute',
-        left: '7%',
-        top: '16%',
-        opacity:0.7
-        },
+  circulo: {
+    width: 150,
+    height: 150,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-        containerCirculo: {
-          flex: 1,
-          flexDirection: 'column',
-        },
+  profileIcon: {
+    position: 'absolute',
+    left: '6%',
+    top: '16%',
+    opacity: 0.7
+  },
 
-        containerImput: {
-          flex: 1,
-          width:'100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: 20,
-          // backgroundColor: 'red'
-        },
+  containerCirculo: {
+    flex: 1,
+    flexDirection: 'column',
+  },
 
-        inputNome: {
-          width: '90%',
-          backgroundColor: 'rgba(168,168,168,0.5)',
-          padding: 10,
-          marginBottom: 10,
-          borderRadius: 20,
-          color: '#fff',
-        },    
+  containerImput: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    // backgroundColor: 'red'
+  },
 
-        containerEmail: {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginBottom: '0%',
-          backgroundColor: 'red'
-        },
+  inputNome: {
+    width: '90%',
+    backgroundColor: 'rgba(168,168,168,0.5)',
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 20,
+    color: '#fff',
+  },
 
-        flexTextNome: {
-          flexDirection: 'row',
-          fontSize: 18,
-          fontWeight: 900,
-          color: 'white',
-        },
+  containerEmail: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: '0%',
+    backgroundColor: 'red'
+  },
 
-        flexTextEmail: {
-            flexDirection: 'row',
-            fontSize: 18,
-            fontWeight: 900,
-            color: 'white',
-        },
+  flexTextNome: {
+    flexDirection: 'row',
+    fontSize: 18,
+    // fontWeight: 900,
+    color: 'white',
+  },
 
-        inputEmail: {
-          width: '90%',
-          backgroundColor: 'rgba(168,168,168,0.5)',
-          padding: 10,
-          marginBottom: 10,
-          borderRadius: 20,
-          color: '#fff',
-        },
+  flexTextEmail: {
+    flexDirection: 'row',
+    fontSize: 18,
+    // fontWeight: 900,
+    color: 'white',
+  },
 
-
-      
+  inputEmail: {
+    width: '90%',
+    backgroundColor: 'rgba(168,168,168,0.5)',
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 20,
+    color: '#fff',
+  },
 });
