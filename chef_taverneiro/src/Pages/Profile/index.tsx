@@ -47,7 +47,7 @@ export const Profile = () => {
         <View style={styles.containerImput}>
           <Text style={styles.flexTextNome}>Nome:</Text>
           <TextInput
-            style={styles.inputNome}
+            style={styles.profileInputNome}
             value={name} // Update the value with the fetched data
             editable={false}
             placeholder="Aqui estará o nome."
@@ -55,7 +55,7 @@ export const Profile = () => {
 
           <Text style={styles.flexTextEmail}>Email:</Text>
           <TextInput
-            style={styles.inputEmail}
+            style={styles.profileInputEmail}
             value={email} // Update the value with the fetched data
             editable={false}
             placeholder="Aqui estará o Email."

@@ -13,16 +13,13 @@ export const styles = StyleSheet.create({
       padding: 20,
     },
     loginInput: {
-      width: '80%',
+      width: '90%',
+      height:'8%',
       backgroundColor: '#6B3F24',
       padding: 10,
       marginBottom: 10,
       borderRadius: 20,
       color: '#fff',
-    },
-    loginSignupText: {
-      color: '#fff',
-      marginBottom: 20,
     },
     loginButton: {
       backgroundColor: 'transparent',
@@ -32,5 +29,7 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'row',
+      fontSize: 16,
+      color: '#fff',
     },
   });
