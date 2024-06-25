@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
       marginBottom: 16,
     },
     ingredient: {
-      fontSize: 20,
+      fontSize: 16,
       fontWeight: "bold",
     },
     instructions: {
