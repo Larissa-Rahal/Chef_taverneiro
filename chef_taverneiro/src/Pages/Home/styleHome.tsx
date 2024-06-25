@@ -1,35 +1,40 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-
   background: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    minHeight:'100%',
-    minWidth: '100%'
+    resizeMode: "cover",
+    justifyContent: "center",
+    minHeight: "100%",
+    minWidth: "100%",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
   },
 
     tarjacheftaberneiro: {
-        verticalAlign:'top',
-        width: '100%',
-        height: 50,
-        marginLeft:0,
-        marginTop:0,
-        marginBottom:0,
-        alignItems:'center',
+      width: 'auto',
+      alignItems:'center',
     },
 
     textInput: {
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 5,
+        padding: 5,
         borderRadius: 8,
-        width: 300, 
+        width: '90%', 
         height: 50,
         backgroundColor: 'rgba(233, 233, 233, 0.8)',
         paddingHorizontal: 10,
         fontSize: 16,
-        alignSelf: 'center'
+        alignSelf: 'center', 
+        bottom: 25
     }
 
 }

@@ -1,13 +1,12 @@
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs/";
 import { RootTabParamList } from "../../Routes/BottomTabRoutes";
 import { styles } from "./styleProfile";
-import background from "../../assets/images/Madeira.png";
-import { ImageBackground, Text, View, Image, TextInput } from "react-native";
+import background from "../../assets/images/Perfil Background.png";
+import { ImageBackground, Text, View, Image } from "react-native";
 import circulo from "../../assets/images/CirculoBranco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useContext, useEffect } from "react";
-import { GetAllUsers } from "../../services/jsonServerApi";
+import React, { useContext } from "react";
 import UserContext from "../../context/userContext";
 
 export type ProfileScreenNavigationProp = BottomTabNavigationProp<
@@ -16,24 +15,7 @@ export type ProfileScreenNavigationProp = BottomTabNavigationProp<
 >;
 
 export const Profile = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const { usuario } = useContext(UserContext);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await GetAllUsers();
-        const userData = response.data;
-        setName(userData.name);
-        setEmail(userData.email);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
     <ImageBackground source={background} style={styles.profileBackground}>
       <View style={styles.profileContainer}>
@@ -49,13 +31,13 @@ export const Profile = () => {
         <View style={styles.containerImput}>
 
           <Text style={styles.flexTextNome}>Id:</Text>
-          <Text style={styles.inputNome}>{usuario.id}</Text>
+          <Text style={styles.profileInputNome}>{usuario.id}</Text>
 
           <Text style={styles.flexTextNome}>Nome:</Text>
-          <Text style={styles.inputNome}>{usuario.nome}</Text>
+          <Text style={styles.profileInputNome}>{usuario.nome}</Text>
 
           <Text style={styles.flexTextEmail}>Email:</Text>
-          <Text style={styles.inputNome}>{usuario.email}</Text>
+          <Text style={styles.profileInputNome}>{usuario.email}</Text>
 
         </View>
       </View>

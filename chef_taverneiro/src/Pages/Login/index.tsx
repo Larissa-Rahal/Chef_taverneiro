@@ -89,10 +89,13 @@ const LoginScreen = () => {
         <TouchableOpacity onPress={() => navigation.navigate("CadastroScreen")}>
           <Text style={styles.loginCadastroButton}>Cadastre-se</Text>
         </TouchableOpacity>
-      </View>
-      <TouchableOpacity style={styles.loginButton} onPress={handleSubmit}>
+
+        <TouchableOpacity style={styles.loginButton} onPress={handleSubmit}>
         <Image source={acessar} />
       </TouchableOpacity>
+
+      </View>
+
     </ImageBackground>
   );
 };
